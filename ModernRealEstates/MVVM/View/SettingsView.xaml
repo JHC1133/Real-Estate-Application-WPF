@@ -15,7 +15,8 @@
                         FontSize="25"/>
 
             <Button Content="Home"
-                    Height="25"/>
+                    Height="25"
+                    Command="{Binding Path=NavigateToHomeCommand}"/>
 
         </StackPanel>
     </Grid>
