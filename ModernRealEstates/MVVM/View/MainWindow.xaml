@@ -1,0 +1,33 @@
+﻿<Window x:Class="ModernRealEstates.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ModernRealEstates"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800"
+        Background="#282828">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="100"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <StackPanel Grid.Column="0">
+            
+            <Button Content="Home"
+                    Height="25"
+                    Command="{Binding Path=NavigateToHomeCommand}"/>
+
+            <Button Content="Settings"
+                    Height="25"
+                    Command="{Binding Path=NavigateToSettingsViewCommand}"/>
+
+        </StackPanel>
+
+        <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentView}">
+            
+        </ContentControl>
+
+    </Grid>
+</Window>
