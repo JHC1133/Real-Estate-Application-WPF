@@ -19,6 +19,22 @@
                     Height="25"
                     Command="{Binding Path=NavigateToHomeCommand}"/>
 
+            <Button Content="Show"
+                    Height="25"
+                    Command="{Binding Path=NavigateToShowViewCommand}"/>
+
+            <Button Content="Add"
+                    Height="25"
+                    Command="{Binding Path=NavigateToAddViewCommand}"/>
+
+            <Button Content="Change"
+                    Height="25"
+                    Command="{Binding Path=NavigateToChangeViewCommand}"/>
+
+            <Button Content="Delete"
+                    Height="25"
+                    Command="{Binding Path=NavigateToDeleteViewCommand}"/>
+
             <Button Content="Settings"
                     Height="25"
                     Command="{Binding Path=NavigateToSettingsViewCommand}"/>

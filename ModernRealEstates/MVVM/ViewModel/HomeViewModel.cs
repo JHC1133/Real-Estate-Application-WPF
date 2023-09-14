@@ -25,11 +25,17 @@ namespace ModernRealEstates.MVVM.ViewModel
 
         // Used for button on HomeView window
         public RelayCommand NavigateToSettingsViewCommand { get; set; }
+        public RelayCommand NavigateToShowViewCommand { get; set; }
+        public RelayCommand NavigateToAddViewCommand { get; set; }
+        
 
         public HomeViewModel(INavigationService navigation)
         {
             Navigation = navigation;
             NavigateToSettingsViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<SettingsViewModel>(); }, canExecute: o => true);
+            NavigateToShowViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<ShowViewModel>(); }, canExecute: o => true);
+            NavigateToAddViewCommand = new RelayCommand(execute: o => { Navigation.NavigateTo<AddViewModel>(); }, canExecute: o => true);
+            
         }
     }
 }

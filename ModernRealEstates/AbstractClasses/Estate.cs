@@ -51,5 +51,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         {
             return $"Address: {Address.Street}, {Address.City}, {Address.Zipcode}";
         }
+
+        // Used for binding 
+        public string DisplayText => EstateToText();
     }
 }

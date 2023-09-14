@@ -1,0 +1,114 @@
+﻿<UserControl x:Class="ModernRealEstates.MVVM.View.AddView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ModernRealEstates.MVVM.View"
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="25" />
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="addBuildingType" Text="Building Type" Foreground="White"
+                               Margin="1" Width="100"/>
+
+                <ComboBox x:Name="addComboBox" Margin="1" Width="100">
+                    <ComboBoxItem Content="Apartment"/>
+                    <ComboBoxItem Content="Townhouse"/>
+                    <ComboBoxItem Content="Villa"/>
+                    <ComboBoxItem Content="Shop"/>
+                    <ComboBoxItem Content="Warehouse"/>
+                    <ComboBoxItem Content="Hospital"/>
+                    <ComboBoxItem Content="School"/>
+                    <ComboBoxItem Content="University"/>
+                </ComboBox>
+
+                <TextBlock x:Name="addPriceTextBlock" Text="Price" Foreground="White"
+                               Margin="30,0" Width="100"/>
+                <TextBox x:Name="addPriceTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addSquareFtTextBlock" Text="Square feet" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addSquareFtTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addFeeTextBlock" Text="Fee" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addFeeTextBox" Margin="1" Width="100" />
+                <!--<TextBlock x:Name="addPricePerSqTextBlock" Text="Price Per Square feet" Foreground="White"
+                               Margin="1" Width="100"/>
+                    <TextBox x:Name="addPricePerSqTextBox" Margin="1" Width="100" />-->
+            </StackPanel>
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="1" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="addStreetTextBlock" Text="Street" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addStreetTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addCityTextBlock" Text="City" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addCityTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addZipCodeTextBlock" Text="Zip Code" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addZipCodeTextBox" Margin="1" Width="100" />
+
+                <TextBlock x:Name="addCountryTextBlock" Text="Country" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addCountryTextBox" Margin="1" Width="100" />
+
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="addNrOfBedroomsTextBlock" Text="Number of Bedrooms" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addNrOfBedroomsTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addNrOfBathroomsTextBlock" Text="Number of Bathrooms" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addNrOfBathroomsTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addNrOfRoomsTextBlock" Text="Number of Rooms" Foreground="White"
+                               Margin="1" Width="100"/>
+                <TextBox x:Name="addNrOfRoomsTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addHasGarageTextBlock" Text="Has Garage" Foreground="White"
+                               Margin="1" Width="100"/>
+                <CheckBox x:Name="addHasGarageCheckBox" Margin="1" />
+                <Button x:Name="addSubmitButton" Content="Add"
+                        Grid.Column="2" Grid.Row="0" Margin="2" Click="addSubmitButton_Click">
+
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Setter Property="Background" Value="LightGray"/>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="LightBlue"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <Border CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="Add"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</UserControl>

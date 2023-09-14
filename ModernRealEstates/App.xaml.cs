@@ -28,9 +28,14 @@ namespace ModernRealEstates
                 DataContext = serviceProvider.GetRequiredService<MainViewModel>()
             });
 
+            
             services.AddSingleton<MainViewModel>();
             services.AddSingleton<HomeViewModel>();
             services.AddSingleton<SettingsViewModel>();
+            services.AddSingleton<ShowViewModel>();
+            services.AddSingleton<AddViewModel>();
+            services.AddSingleton<ChangeViewModel>();
+            services.AddSingleton<DeleteViewModel>();
             services.AddSingleton<INavigationService, NavigationService>();
 
             services.AddSingleton<Func<Type, ViewModel>>(serviceProvider => viewModelType => (ViewModel)serviceProvider.GetRequiredService(viewModelType));

@@ -13,17 +13,16 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace ModernRealEstates
+namespace ModernRealEstates.MVVM.View
 {
     /// <summary>
-    /// Interaction logic for MainWindow.xaml
+    /// Interaction logic for DeleteView.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class DeleteView : UserControl
     {
-        public MainWindow()
+        public DeleteView()
         {
             InitializeComponent();
-            
         }
     }
 }

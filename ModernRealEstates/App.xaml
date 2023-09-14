@@ -15,5 +15,21 @@
             <view:SettingsView/>
         </DataTemplate>
 
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ShowViewModel}">
+            <view:ShowView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:AddViewModel}">
+            <view:AddView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:ChangeViewModel}">
+            <view:ChangeView/>
+        </DataTemplate>
+
+        <DataTemplate DataType="{x:Type TypeName=viewModel:DeleteViewModel}">
+            <view:DeleteView/>
+        </DataTemplate>
+
     </Application.Resources>
 </Application>
