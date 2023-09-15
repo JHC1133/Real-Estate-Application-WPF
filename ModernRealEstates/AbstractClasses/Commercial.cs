@@ -14,7 +14,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         protected int leaseTerm;
         protected string businessType;
 
-        
-
+        protected Commercial(int price, string street, string city, string zipcode, string country) : base(price, street, city, zipcode, country)
+        {
+        }
     }
 }

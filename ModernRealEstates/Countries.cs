@@ -208,3 +208,15 @@ using System.Text;
     }
 
 
+//public class CountriesEnumValues
+//{
+//    public static IEnumerable<Countries> Instance
+//    {
+//        get
+//        {
+//            return Enum.GetValues(typeof(Countries)).Cast<Countries>();
+//        }
+//    }
+//}
+
+

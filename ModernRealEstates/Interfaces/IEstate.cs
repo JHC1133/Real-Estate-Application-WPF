@@ -11,6 +11,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.Interfaces
 
         int ID { get; set; }
 
+        Address Address { get; set; }
+
 
         string GetCity();
         string GetStreet();

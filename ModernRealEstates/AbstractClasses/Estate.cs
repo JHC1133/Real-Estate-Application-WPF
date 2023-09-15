@@ -17,6 +17,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         protected int price;
         protected int pricePerSqFeet;
         protected int monthlyFee;
+        protected string country;
 
         protected static int staticID;
 
@@ -29,6 +30,17 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public int Price { get => price; set => price = value; }
         public int PricePerSqFeet { get => pricePerSqFeet; set => pricePerSqFeet = value; }
         public int MonthlyFee { get => monthlyFee; set => monthlyFee = value; }
+        public string Country { get => country; set => country = value; }
+
+        public Estate(int price, string street, string city, string zipcode, string country)
+        {
+            
+        }
+
+        public Estate(int price, Address address)
+        {
+
+        }
 
         public abstract void CalculatePricePerSqFeet();
 
@@ -47,12 +59,10 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             return Address.City;
         }
 
-        public virtual string EstateToText()
-        {
-            return $"Address: {Address.Street}, {Address.City}, {Address.Zipcode}";
-        }
+        public abstract string EstateToText();
 
         // Used for binding 
         public string DisplayText => EstateToText();
+
     }
 }

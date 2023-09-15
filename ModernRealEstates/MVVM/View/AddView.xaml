@@ -24,7 +24,7 @@
                 <TextBlock x:Name="addBuildingType" Text="Building Type" Foreground="White"
                                Margin="1" Width="100"/>
 
-                <ComboBox x:Name="addComboBox" Margin="1" Width="100">
+                <ComboBox x:Name="addComboBox" Margin="1" Width="100" SelectionChanged="addComboBox_SelectionChanged">
                     <ComboBoxItem Content="Apartment"/>
                     <ComboBoxItem Content="Townhouse"/>
                     <ComboBoxItem Content="Villa"/>
@@ -65,7 +65,8 @@
 
                 <TextBlock x:Name="addCountryTextBlock" Text="Country" Foreground="White"
                                Margin="1" Width="100"/>
-                <TextBox x:Name="addCountryTextBox" Margin="1" Width="100" />
+                <!--<TextBox x:Name="addCountryTextBox" Margin="1" Width="100" />-->
+                <ComboBox x:Name="countryComboBox"/>
 
             </StackPanel>
         </StackPanel>

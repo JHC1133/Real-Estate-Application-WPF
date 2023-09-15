@@ -30,11 +30,7 @@ namespace ModernRealEstates.MVVM.View
 
             estateListBox.ItemsSource = SharedData.Instance.EstatesList;
 
-            Estate testate = new Apartment("Kungs", "Växjö", "21133", 1, 2, true);
-            Estate estate1 = new Apartment("Halla", "Malmö", "21213", 1, 2, false);
-
-            SharedData.Instance.EstatesList.Add(testate);
-            SharedData.Instance.EstatesList.Add(estate1);
+            
 
             //string stringEstate = testate.EstateToText();
             //estateListBox.Items.Add(stringEstate);
