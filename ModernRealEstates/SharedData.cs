@@ -1,4 +1,5 @@
-﻿using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+﻿using Modern_Real_Estates_by_Joar_H_C;
+using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
 using Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings;
 using System;
 using System.Collections.Generic;
@@ -20,9 +21,13 @@ namespace ModernRealEstates
         {
             EstatesList = new ObservableCollection<Estate>();
 
-            Estate testate = new Apartment(150, 30, 20, "Zoller", "Malmö", "21213", "Suecia", 14, 1, 2, true);
-            Estate testate1 = new Apartment(200, 20, 30, "Kungs", "Växjö", "21133", "Deniak", 5, 1, 2, true);
-            Estate estate1 = new Apartment(300, 20, 20, "Halla", "Malmö", "21213", "Joder", 2, 1, 2, false);
+            Address address;
+
+            address = new Address("Kungs", "Växjö", "21133", "Deniak");
+
+            Estate testate = new Apartment(150, 30, 20, address, 14, 1, 2, true);
+            Estate testate1 = new Villa(200, 20, 30, address, 5, 1, 2, true);
+            Estate estate1 = new Townhouse(300, 20, 20, address, 2, 1, 2, false);
 
             EstatesList.Add(testate1);
             EstatesList.Add(estate1);

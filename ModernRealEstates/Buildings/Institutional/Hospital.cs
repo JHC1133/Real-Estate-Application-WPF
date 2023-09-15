@@ -9,7 +9,7 @@ namespace Modern_Real_Estates_by_Joar_H_C
 {
     internal class Hospital : Institutional
     {
-        public Hospital(int price, string street, string city, string zipcode, string country) : base(price, street, city, zipcode, country)
+        public Hospital(int price, Address address) : base(price, address)
         {
         }
 

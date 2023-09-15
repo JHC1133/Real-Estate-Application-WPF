@@ -13,12 +13,14 @@
             <RowDefinition/>
             <RowDefinition/>
         </Grid.RowDefinitions>
-        
+
         <Grid.ColumnDefinitions>
             <ColumnDefinition/>
             <ColumnDefinition/>
             <ColumnDefinition/>
+            <ColumnDefinition/>
         </Grid.ColumnDefinitions>
+
         <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="addBuildingType" Text="Building Type" Foreground="White"
@@ -71,45 +73,117 @@
             </StackPanel>
         </StackPanel>
 
-        <StackPanel Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
-            <StackPanel Orientation="Vertical">
+        <StackPanel  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+            <StackPanel Name="residentialStackPanel" Orientation="Vertical">
                 <TextBlock x:Name="addNrOfBedroomsTextBlock" Text="Number of Bedrooms" Foreground="White"
                                Margin="1" Width="100"/>
                 <TextBox x:Name="addNrOfBedroomsTextBox" Margin="1" Width="100" />
                 <TextBlock x:Name="addNrOfBathroomsTextBlock" Text="Number of Bathrooms" Foreground="White"
                                Margin="1" Width="100"/>
                 <TextBox x:Name="addNrOfBathroomsTextBox" Margin="1" Width="100" />
-                <TextBlock x:Name="addNrOfRoomsTextBlock" Text="Number of Rooms" Foreground="White"
-                               Margin="1" Width="100"/>
-                <TextBox x:Name="addNrOfRoomsTextBox" Margin="1" Width="100" />
-                <TextBlock x:Name="addHasGarageTextBlock" Text="Has Garage" Foreground="White"
-                               Margin="1" Width="100"/>
-                <CheckBox x:Name="addHasGarageCheckBox" Margin="1" />
-                <Button x:Name="addSubmitButton" Content="Add"
-                        Grid.Column="2" Grid.Row="0" Margin="2" Click="addSubmitButton_Click">
 
-                    <Button.Style>
-                        <Style TargetType="Button">
-                            <Setter Property="Background" Value="LightGray"/>
-                            <Style.Triggers>
-                                <Trigger Property="IsMouseOver" Value="True">
-                                    <Setter Property="Background" Value="LightBlue"/>
-                                </Trigger>
-                            </Style.Triggers>
-                        </Style>
-                    </Button.Style>
+                <TextBlock x:Name="addNrOfRoomsTextBlock" 
+                           Text="Number of Rooms" 
+                           Foreground="White"
+                           Margin="1" Width="100"/>
 
-                    <Button.Template>
-                        <ControlTemplate TargetType="Button">
-                            <Border CornerRadius="9"
-                                    Background="{TemplateBinding Background}">
-                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="Add"/>
-                            </Border>
-                        </ControlTemplate>
-                    </Button.Template>
-                </Button>
+                <TextBox x:Name="addNrOfRoomsTextBox" 
+                         Margin="1" 
+                         Width="100" />
+
+                <TextBlock x:Name="addHasGarageTextBlock" 
+                           Text="Has Garage" 
+                           Foreground="White"                              
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="addHasGarageCheckBox" 
+                          Margin="1" />
+
+
 
             </StackPanel>
+
+
+
         </StackPanel>
+
+        <StackPanel Name="commercialStackPanel" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                <TextBlock x:Name="addSaleOrRentTextBlock" 
+                           Text="Sale or Rent" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <ComboBox x:Name="addSaleOrRentTextBox">
+                          Margin="1"  
+                          Width="100"
+                         <ComboBoxItem Content="Sale"/>
+                         <ComboBoxItem Content="Rent"/>
+
+                </ComboBox>
+
+                <TextBlock x:Name="addNrOfFloorsTextBlock" 
+                           Text="Number of Floors" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="addNrOfFloorsTextBox" Margin="1" Width="100" />
+
+                <TextBlock x:Name="addHasParkingTextBlock" 
+                           Text="Has Parking" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+                <CheckBox x:Name="addHasParkingCheckBox" Checked="addHasParkingCheckBox_Checked" Unchecked="addHasParkingCheckBox_Unchecked"
+                          Margin="1" />
+
+                <TextBlock x:Name="addNrOfParkingTextBlock" 
+                           Text="Parking Spaces" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="addNrOfParkingTextBox" Margin="1" Width="100" />
+
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <Button x:Name="addSubmitButton" 
+                        Content="Add"
+                        Margin="0,130,50,50" 
+                        Click="addSubmitButton_Click" 
+                        Grid.Column="3" 
+                        Grid.ColumnSpan="1" 
+                        Grid.Row="2" 
+                        Panel.ZIndex="10"
+                        Visibility="Visible">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="Add"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        
     </Grid>
 </UserControl>

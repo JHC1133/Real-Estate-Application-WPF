@@ -13,9 +13,19 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         protected int numberOfFloors;
         protected int leaseTerm;
         protected string businessType;
+        protected string saleOrRent;
+        protected bool hasParking;
+        protected int? numberOfParkingSlots;
 
-        protected Commercial(int price, string street, string city, string zipcode, string country) : base(price, street, city, zipcode, country)
+        protected Commercial(int price, string saleOrRent,  int squareFeet, Address address, int numberOfFloors, bool hasParking, int? numberOfParkingSlots) : base(price, address)
         {
+            this.id = staticID++;
+            this.Address = address;
+            this.Price = price;
+            this.SquareFeet = squareFeet;
+            this.hasParking = hasParking;
+            this.numberOfParkingSlots = numberOfParkingSlots;
+
         }
     }
 }

@@ -10,7 +10,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
     {
         protected string institutionType;
 
-        protected Institutional(int price, string street, string city, string zipcode, string country) : base(price, street, city, zipcode, country)
+        protected Institutional(int price, Address address) : base(price, address)
         {
         }
     }

@@ -32,10 +32,6 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public int MonthlyFee { get => monthlyFee; set => monthlyFee = value; }
         public string Country { get => country; set => country = value; }
 
-        public Estate(int price, string street, string city, string zipcode, string country)
-        {
-            
-        }
 
         public Estate(int price, Address address)
         {
@@ -61,7 +57,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 
         public abstract string EstateToText();
 
-        // Used for binding 
+        // Used for binding in XAML
         public string DisplayText => EstateToText();
 
     }

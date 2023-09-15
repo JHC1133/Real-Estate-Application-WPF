@@ -32,9 +32,13 @@ namespace ModernRealEstates.MVVM.View
             DataContext = SharedData.Instance;
 
             LoadCountriesComboBox();
+            HideCommercialParkingControls();
 
             currentBT = BuildingTypes.Residential;
+            addComboBox.SelectedIndex = 0;
         }
+
+        
 
         private void LoadCountriesComboBox()
         {
@@ -44,32 +48,57 @@ namespace ModernRealEstates.MVVM.View
             }
         }
 
-        private void addButton_Click(object sender, RoutedEventArgs e)
-        {
-                    
-            
-        }
-
-        private bool AddResidentialFormIsCompleted()
-        {
-            if (string.IsNullOrWhiteSpace(addStreetTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addCityTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addZipCodeTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addNrOfBathroomsTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addNrOfBedroomsTextBox.Text) ||
-                string.IsNullOrWhiteSpace(addNrOfRoomsTextBox.Text))
-            {
-                MessageBox.Show("Please fill out the form!");
-                return false;
-            }
-            return true;
-        }
-
         private enum BuildingTypes
         {
             Residential,
             Institutional,
             Commercial
+        }
+
+        private void HandleComboBoxSelection()
+        {
+            switch (addComboBox.SelectedIndex)
+            {
+                case 0:
+                    currentBT = BuildingTypes.Residential; // Apartment
+                    ShowResidentialStackPanelOnly();
+                    Debug.WriteLine("Case: residential");
+                    break;
+                case 1:
+                    currentBT = BuildingTypes.Residential; // Townhouse
+                    ShowResidentialStackPanelOnly();
+                    Debug.WriteLine("Case: residential");
+                    break;
+                case 2:
+                    currentBT = BuildingTypes.Residential; // Villa
+                    ShowResidentialStackPanelOnly();
+                    Debug.WriteLine("Case: residential");
+                    break;
+                case 3:
+                    currentBT = BuildingTypes.Commercial; // Shop
+                    ShowCommericalStackPanelOnly();
+                    Debug.WriteLine("Case: Commercial");
+                    break;
+                case 4:
+                    currentBT = BuildingTypes.Commercial; // Warehouse
+                    ShowCommericalStackPanelOnly();
+                    Debug.WriteLine("Case: Commercial");
+                    break;
+                case 5:
+                    currentBT = BuildingTypes.Institutional; // Hospital
+                    Debug.WriteLine("Case: Institutional");
+                    break;
+                case 6:
+                    currentBT = BuildingTypes.Institutional; // School
+                    Debug.WriteLine("Case: Institutional");
+                    break;
+                case 7:
+                    currentBT = BuildingTypes.Institutional; // University
+                    Debug.WriteLine("Case: Institutional");
+                    break;
+                default:
+                    break;
+            }
         }
 
         private void ClearResidentialForm()
@@ -86,6 +115,21 @@ namespace ModernRealEstates.MVVM.View
 
             countryComboBox.Text = null;
             addHasGarageCheckBox.IsChecked = false;
+        }
+
+        private bool AddResidentialFormIsCompleted()
+        {
+            if (string.IsNullOrWhiteSpace(addStreetTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addCityTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addZipCodeTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfBathroomsTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfBedroomsTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfRoomsTextBox.Text))
+            {
+                MessageBox.Show("Please fill out the form!");
+                return false;
+            }
+            return true;
         }
 
         private void addSubmitButton_Click(object sender, RoutedEventArgs e)
@@ -110,34 +154,31 @@ namespace ModernRealEstates.MVVM.View
                             if (buildingType == "Apartment")
                             {
                                 Estate estate;
-                                Estate estate1;
                                 Address address;
 
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-
-                                estate = new Apartment(price, squareFeet, monthlyFee, addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString(),
-                                    numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
-
-                                estate1 = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
+                                estate = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
 
                                 SharedData.Instance.EstatesList.Add(estate);
-                                SharedData.Instance.EstatesList.Add(estate1);
-
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Townhouse")
                             {
                                 Estate estate;
-                                estate = new Townhouse(price, squareFeet, monthlyFee, addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString(),
-                                    numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
+                                Address address;
+
+                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                                estate = new Townhouse(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Villa")
                             {
                                 Estate estate;
-                                estate = new Villa(price, squareFeet, monthlyFee, addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString(),
-                                    numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
+                                Address address;
+
+                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                                estate = new Villa(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value);
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearResidentialForm();
                             }                           
@@ -154,42 +195,72 @@ namespace ModernRealEstates.MVVM.View
             }
         }
 
-        private void HandleComboBoxSelection()
-        {
-            switch (addComboBox.SelectedIndex)
-            {
-                case 0:
-                    currentBT = BuildingTypes.Residential;
-                    break;
-                case 1:
-                    currentBT = BuildingTypes.Residential;
-                    break;
-                case 2:
-                    currentBT = BuildingTypes.Residential;
-                    break;
-                case 3:
-                    currentBT = BuildingTypes.Commercial;
-                    break;
-                case 4:
-                    currentBT = BuildingTypes.Commercial;
-                    break;
-                case 5:
-                    currentBT = BuildingTypes.Institutional;
-                    break;
-                case 6:
-                    currentBT = BuildingTypes.Institutional;
-                    break;
-                case 7:
-                    currentBT = BuildingTypes.Institutional;
-                    break;
-                default:
-                    break;
-            }
-        }
+      
 
         private void addComboBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             HandleComboBoxSelection();
+        }
+
+        private void ShowResidentialStackPanelOnly()
+        {
+            ShowResidentialStackPanelItems();
+            HideCommercialStackPanelItems();
+        }
+
+        private void ShowCommericalStackPanelOnly()
+        {
+            ShowCommercialStackPanelItems();
+            HideResidentialStackPanelItems();
+        }
+
+        private void HideResidentialStackPanelItems()
+        {
+            foreach (UIElement child in residentialStackPanel.Children)
+            {
+                child.Visibility = Visibility.Collapsed;
+            }
+        }
+        private void HideCommercialStackPanelItems()
+        {
+            foreach (UIElement child in commercialStackPanel.Children)
+            {
+                child.Visibility = Visibility.Collapsed;
+            }
+        }
+
+        private void ShowCommercialStackPanelItems()
+        {
+            foreach (UIElement child in commercialStackPanel.Children)
+            {
+                child.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void ShowResidentialStackPanelItems()
+        {
+            foreach (UIElement child in residentialStackPanel.Children)
+            {
+                child.Visibility = Visibility.Visible;
+            }
+        }
+
+        private void addHasParkingCheckBox_Checked(object sender, RoutedEventArgs e)
+        {
+            addNrOfParkingTextBlock.Visibility = Visibility.Visible;
+            addNrOfParkingTextBox.Visibility = Visibility.Visible;
+        }
+
+        private void addHasParkingCheckBox_Unchecked(object sender, RoutedEventArgs e)
+        {
+            addNrOfParkingTextBlock.Visibility = Visibility.Collapsed;
+            addNrOfParkingTextBox.Visibility = Visibility.Collapsed;
+        }
+
+        private void HideCommercialParkingControls()
+        {
+            addNrOfParkingTextBlock.Visibility = Visibility.Collapsed;
+            addNrOfParkingTextBox.Visibility = Visibility.Collapsed;
         }
     }
 }

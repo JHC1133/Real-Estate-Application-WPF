@@ -9,8 +9,11 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings
 {
     internal class Warehouse : Commercial
     {
-        public Warehouse(int price, string street, string city, string zipcode, string country) : base(price, street, city, zipcode, country)
+        bool hasAvailableInventory;
+
+        public Warehouse(int price, string saleOrRent, int squareFeet, Address address, int numberOfFloors, bool hasParking, int numberOfParkingSlots, bool hasAvailableInventory) : base(price, saleOrRent, squareFeet, address, numberOfFloors, hasParking, numberOfParkingSlots)
         {
+            this.hasAvailableInventory = hasAvailableInventory;
         }
 
         public override void CalculatePricePerSqFeet()
@@ -20,7 +23,16 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings
 
         public override string EstateToText()
         {
-            throw new NotImplementedException();
+            if (saleOrRent == "Rent")
+            {
+                return $"{ID} | For Rent | Price: {Price} kr / month | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {numberOfFloors} | Parking: {hasParking} | Number of Parking spaces: {numberOfParkingSlots} | Avaible inventory: {hasAvailableInventory} | Warehouse";
+            }
+            else if (saleOrRent == "Sale")
+            {
+                return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {numberOfFloors} | Parking: {hasParking} | Number of Parking spaces: {numberOfParkingSlots} | Avaible inventory: {hasAvailableInventory} | Warehouse";
+            }
+
+            return null;
         }
     }
 }
