@@ -1,5 +1,6 @@
 ﻿using Modern_Real_Estates_by_Joar_H_C;
 using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+using Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings;
 using Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings;
 using System;
 using System.Collections.Generic;
@@ -132,6 +133,23 @@ namespace ModernRealEstates.MVVM.View
             return true;
         }
 
+        private bool AddCommercialFormIsCompleted() // TODO FIXA
+        {
+            if (string.IsNullOrWhiteSpace(addStreetTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addCityTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addZipCodeTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfBathroomsTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfBedroomsTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfRoomsTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addSaleOrRentTextBox.Text) ||
+                string.IsNullOrWhiteSpace(addNrOfFloorsTextBox.Text))
+            {
+                MessageBox.Show("Please fill out the form!");
+                return false;
+            }
+            return true;
+        }
+
         private void addSubmitButton_Click(object sender, RoutedEventArgs e)
         {
 
@@ -187,6 +205,32 @@ namespace ModernRealEstates.MVVM.View
                     }
                     break;
                 case BuildingTypes.Institutional:
+
+                    if (AddCommercialFormIsCompleted())
+                    {
+                        if (int.TryParse(addNrOfFloorsTextBox.Text, out int numberOfFloors) &&
+                            int.TryParse(addNrOfParkingTextBox.Text, out int numberOfParking) &&
+                            int.TryParse(addPriceTextBox.Text, out int price) &&
+                            int.TryParse(addSquareFtTextBox.Text, out int squareFeet) &&
+                            int.TryParse(addFeeTextBox.Text, out int monthlyFee) &&
+                            countryComboBox.SelectedItem != null)
+                        {
+                            string buildingType = addComboBox.Text;
+
+                            if (buildingType == "Shop")
+                            {
+                                Estate estate;
+                                Address address;
+
+                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                                estate = new Shop(price, addSaleOrRentTextBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking);
+
+                                SharedData.Instance.EstatesList.Add(estate);
+                                ClearResidentialForm();
+                            }
+                        }
+                        break;
+                    }
                     break;
                 case BuildingTypes.Commercial:
                     break; 

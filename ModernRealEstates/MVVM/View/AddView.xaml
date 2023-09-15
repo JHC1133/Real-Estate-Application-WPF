@@ -156,7 +156,7 @@
 
         <Button x:Name="addSubmitButton" 
                         Content="Add"
-                        Margin="0,130,50,50" 
+                        Margin="0,152,50,28" 
                         Click="addSubmitButton_Click" 
                         Grid.Column="3" 
                         Grid.ColumnSpan="1" 
