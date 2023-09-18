@@ -74,13 +74,27 @@
         </StackPanel>
 
         <StackPanel  Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+            
             <StackPanel Name="residentialStackPanel" Orientation="Vertical">
-                <TextBlock x:Name="addNrOfBedroomsTextBlock" Text="Number of Bedrooms" Foreground="White"
-                               Margin="1" Width="100"/>
-                <TextBox x:Name="addNrOfBedroomsTextBox" Margin="1" Width="100" />
-                <TextBlock x:Name="addNrOfBathroomsTextBlock" Text="Number of Bathrooms" Foreground="White"
-                               Margin="1" Width="100"/>
-                <TextBox x:Name="addNrOfBathroomsTextBox" Margin="1" Width="100" />
+                <TextBlock x:Name="addNrOfBedroomsTextBlock" 
+                           Text="Number of Bedrooms" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+                
+                <TextBox x:Name="addNrOfBedroomsTextBox" 
+                         Margin="1" 
+                         Width="100" />
+                
+                <TextBlock x:Name="addNrOfBathroomsTextBlock" 
+                           Text="Number of Bathrooms" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+                
+                <TextBox x:Name="addNrOfBathroomsTextBox" 
+                           Margin="1" 
+                           Width="100" />
 
                 <TextBlock x:Name="addNrOfRoomsTextBlock" 
                            Text="Number of Rooms" 
@@ -88,8 +102,8 @@
                            Margin="1" Width="100"/>
 
                 <TextBox x:Name="addNrOfRoomsTextBox" 
-                         Margin="1" 
-                         Width="100" />
+                           Margin="1" 
+                           Width="100" />
 
                 <TextBlock x:Name="addHasGarageTextBlock" 
                            Text="Has Garage" 
@@ -110,15 +124,14 @@
 
         <StackPanel Name="commercialStackPanel" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical">
+                
                 <TextBlock x:Name="addSaleOrRentTextBlock" 
                            Text="Sale or Rent" 
                            Foreground="White"
                            Margin="1" 
                            Width="100"/>
 
-                <ComboBox x:Name="addSaleOrRentTextBox">
-                          Margin="1"  
-                          Width="100"
+                <ComboBox x:Name="addSaleOrRentComboBox" Margin="1" Width="100">
                          <ComboBoxItem Content="Sale"/>
                          <ComboBoxItem Content="Rent"/>
 
@@ -152,6 +165,89 @@
             </StackPanel>
 
 
+        </StackPanel>
+        
+        <StackPanel Name="commercialStackPanel2" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+                
+                <TextBlock x:Name="addHasInventoryTextBlock" 
+                           Text="Has Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="addHasInventoryCheckBox"
+                          Margin="1" Checked="addHasInventoryCheckBox_Checked" Unchecked="addHasInventoryCheckBox_Unchecked" />
+
+                <TextBlock x:Name="addTypeOfInventoryTextBlock" 
+                           Text="Type of Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <ComboBox x:Name="addHasInventoryComboBox" Margin="1" Width="100">
+                         <ComboBoxItem Content="Groceries"/>
+                         <ComboBoxItem Content="Electronics"/>
+                         <ComboBoxItem Content="Textiles"/>
+                         <ComboBoxItem Content="Hardware"/>
+                         <ComboBoxItem Content="Sport"/>
+                         <ComboBoxItem Content="Office"/>
+                         <ComboBoxItem Content="Outdoor"/>
+
+                </ComboBox>
+             
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Name="institutionalStackPanel" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="addNrOfFloorsInstitTextBlock" 
+                           Text="Number of Floors" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="addNrOfFloorsInstitTextBox" Margin="1" Width="100" />
+
+                <TextBlock x:Name="addHasParkingInstitTextBlock" 
+                           Text="Has Parking" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+                
+                <CheckBox x:Name="addHasParkingInstitCheckBox" 
+                          Margin="1" Checked="addHasParkingInstitCheckBox_Checked" Unchecked="addHasParkingInstitCheckBox_Unchecked" />
+
+                <TextBlock x:Name="addNrOfParkingInstitTextBlock" 
+                           Text="Parking Spaces" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="addNrOfParkingInstitTextBox" Margin="1" Width="100" />
+
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Name="institutionalStackPanel2" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="addHasInventoryInstitTextBlock" 
+                           Text="Has Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="addHasInventoryInstitCheckBox"
+                          Margin="1" Checked="addHasInventoryCheckBox_Checked" Unchecked="addHasInventoryCheckBox_Unchecked" />
+
+            </StackPanel>
         </StackPanel>
 
         <Button x:Name="addSubmitButton" 

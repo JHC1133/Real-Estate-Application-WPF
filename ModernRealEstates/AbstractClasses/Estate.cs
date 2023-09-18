@@ -18,6 +18,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         protected int pricePerSqFeet;
         protected int monthlyFee;
         protected string country;
+        protected string buildingType;
 
         protected static int staticID;
 
@@ -31,9 +32,9 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public int PricePerSqFeet { get => pricePerSqFeet; set => pricePerSqFeet = value; }
         public int MonthlyFee { get => monthlyFee; set => monthlyFee = value; }
         public string Country { get => country; set => country = value; }
+        public string BuildingType { get => buildingType; set => buildingType = value; }
 
-
-        public Estate(int price, Address address)
+        public Estate(int price, Address address, string buildingType)
         {
 
         }
@@ -60,5 +61,6 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         // Used for binding in XAML
         public string DisplayText => EstateToText();
 
+        
     }
 }

@@ -25,9 +25,9 @@ namespace ModernRealEstates
 
             address = new Address("Kungs", "Växjö", "21133", "Deniak");
 
-            Estate testate = new Apartment(150, 30, 20, address, 14, 1, 2, true);
-            Estate testate1 = new Villa(200, 20, 30, address, 5, 1, 2, true);
-            Estate estate1 = new Townhouse(300, 20, 20, address, 2, 1, 2, false);
+            Estate testate = new Apartment(150, 30, 20, address, 14, 1, 2, true, "Apartment");
+            Estate testate1 = new Villa(200, 20, 30, address, 5, 1, 2, true, "Villa");
+            Estate estate1 = new Townhouse(300, 20, 20, address, 2, 1, 2, false, "Townhouse");
 
             EstatesList.Add(testate1);
             EstatesList.Add(estate1);

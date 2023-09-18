@@ -11,13 +11,15 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 
         protected int numberOfBedrooms;
         protected int numberOfBathrooms;
-        protected bool hasGarage;
+        protected bool? hasGarage;
         protected List<string> amenities; // Create an checklist for amenities like pool, backyard etc
 
         public int NumberOfBedrooms { get => numberOfBedrooms; set => numberOfBedrooms = value; }
-        public int NumberOfBathrooms { get => numberOfBathrooms; set => numberOfBathrooms = value; }      
+        public int NumberOfBathrooms { get => numberOfBathrooms; set => numberOfBathrooms = value; } 
+        public bool? HasGarage { get => hasGarage; set => hasGarage = value; }
 
-        public Residential(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage) : base(price, address)
+        public Residential(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType) 
+            : base(price, address, buildingType)
         {
             this.id = staticID++;
             this.Address = address;
@@ -28,6 +30,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             this.NumberOfBathrooms = numberOfBathrooms;
             this.NumberOfRooms = numberOfRooms;
             this.hasGarage = hasGarage;
+            this.BuildingType = buildingType;
         }
 
     }

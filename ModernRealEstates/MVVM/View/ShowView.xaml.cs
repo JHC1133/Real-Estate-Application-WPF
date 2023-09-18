@@ -30,24 +30,12 @@ namespace ModernRealEstates.MVVM.View
 
             estateListBox.ItemsSource = SharedData.Instance.EstatesList;
 
-            
-
-            //string stringEstate = testate.EstateToText();
-            //estateListBox.Items.Add(stringEstate);
-
-            //foreach (Estate estate in SharedData.Instance.EstatesList)
-            //{
-            //    string stringEstate = estate.EstateToText();
-            //    estateListBox.Items.Add(stringEstate);
-            //}
-
         }
 
         private void deleteSubmitButton_Click(object sender, RoutedEventArgs e)
         {
             if (estateListBox.SelectedItem != null)
             {
-                //estateListBox.Items.Remove(estateListBox.SelectedItem);
                 SharedData.Instance.EstatesList.Remove((Estate)estateListBox.SelectedItem);
 
                 foreach (Estate estate in SharedData.Instance.EstatesList)

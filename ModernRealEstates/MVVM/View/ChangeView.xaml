@@ -7,6 +7,19 @@
              mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
@@ -17,5 +30,301 @@
             
 
         </StackPanel>
+        
+        <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
+            
+            <TextBlock x:Name="currentListingsTextBlock" Text="Current listings" 
+                       Foreground="White"
+                       Margin="90,30,0,5" 
+                       Width="100" 
+                       HorizontalAlignment="Left"/>
+            
+            <ListBox x:Name="estateListBox" 
+                     ItemsSource="{Binding EstatesCollection}"
+                     Width="502" Height="103" SelectionChanged="estateListBox_SelectionChanged">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <TextBlock Text="{Binding DisplayText}"/>
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+            </ListBox>
+
+            <Button x:Name="changeSelectButton" 
+                    Content="Change" Width="70"
+                    HorizontalAlignment="Right"
+                    Margin="0,5,90,0" Click="changeSelectButton_Click">
+
+                <Button.Style>
+                    <Style TargetType="Button">
+                        <Setter Property="Background" Value="LightGray"/>
+                        <Style.Triggers>
+                            <Trigger Property="IsMouseOver" Value="True">
+                                <Setter Property="Background" Value="LightBlue"/>
+                            </Trigger>
+                        </Style.Triggers>
+                    </Style>
+                </Button.Style>
+
+                <Button.Template>
+                    <ControlTemplate TargetType="Button">
+                        <Border CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="Change"/>
+                        </Border>
+                    </ControlTemplate>
+                </Button.Template>
+            </Button>
+
+
+        </StackPanel>
+
+       
+        
+        <StackPanel Grid.Row="1" Grid.Column="0">
+
+            <TextBlock x:Name="changeBuildingType" Text="Building Type" Foreground="White"
+                               Margin="1" Width="100"/>
+
+            <ComboBox x:Name="changeComboBox" Margin="1" Width="100" SelectionChanged="changeComboBox_SelectionChanged">
+                <ComboBoxItem Content="Apartment"/>
+                <ComboBoxItem Content="Townhouse"/>
+                <ComboBoxItem Content="Villa"/>
+                <ComboBoxItem Content="Shop"/>
+                <ComboBoxItem Content="Warehouse"/>
+                <ComboBoxItem Content="Hospital"/>
+                <ComboBoxItem Content="School"/>
+                <ComboBoxItem Content="University"/>
+            </ComboBox>
+
+            <TextBlock x:Name="changePriceTextBlock" Text="Price" Foreground="White"
+                               Margin="30,0" Width="100"/>
+            <TextBox x:Name="changePriceTextBox" Margin="1" Width="100" />
+            <TextBlock x:Name="changeSquareFtTextBlock" Text="Square feet" Foreground="White"
+                               Margin="1" Width="100"/>
+            <TextBox x:Name="changeSquareFtTextBox" Margin="1" Width="100" />
+            <TextBlock x:Name="changeFeeTextBlock" Text="Fee" Foreground="White"
+                               Margin="1" Width="100"/>
+            <TextBox x:Name="changeFeeTextBox" Margin="1" Width="100" />
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="1" Grid.Column="1">
+            <TextBlock x:Name="changeStreetTextBlock" Text="Street" Foreground="White"
+                               Margin="1" Width="100"/>
+            <TextBox x:Name="changeStreetTextBox" Margin="1" Width="100" />
+            <TextBlock x:Name="changeCityTextBlock" Text="City" Foreground="White"
+                               Margin="1" Width="100"/>
+            <TextBox x:Name="changeCityTextBox" Margin="1" Width="100" />
+            <TextBlock x:Name="changeZipCodeTextBlock" Text="Zip Code" Foreground="White"
+                               Margin="1" Width="100"/>
+            <TextBox x:Name="changeZipCodeTextBox" Margin="1" Width="100" />
+
+            <TextBlock x:Name="changeCountryTextBlock" Text="Country" Foreground="White"
+                               Margin="1" Width="100"/>
+            <!--<TextBox x:Name="changeCountryTextBox" Margin="1" Width="100" />-->
+            <ComboBox x:Name="countryComboBox" Margin="1" Width="100"/>
+        </StackPanel>
+
+        <StackPanel Name="residentialStackPanel" Orientation="Vertical"
+                    Grid.Row="2" Grid.Column="2">
+            
+            <TextBlock x:Name="changeNrOfBedroomsTextBlock" 
+                           Text="Number of Bedrooms" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+            <TextBox x:Name="changeNrOfBedroomsTextBox" 
+                         Margin="1" 
+                         Width="100" />
+
+            <TextBlock x:Name="changeNrOfBathroomsTextBlock" 
+                           Text="Number of Bathrooms" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+            <TextBox x:Name="changeNrOfBathroomsTextBox" 
+                           Margin="1" 
+                           Width="100" />
+
+            <TextBlock x:Name="changeNrOfRoomsTextBlock" 
+                           Text="Number of Rooms" 
+                           Foreground="White"
+                           Margin="1" Width="100"/>
+
+            <TextBox x:Name="changeNrOfRoomsTextBox" 
+                           Margin="1" 
+                           Width="100" />
+
+            <TextBlock x:Name="changeHasGarageTextBlock" 
+                           Text="Has Garage" 
+                           Foreground="White"                              
+                           Margin="1" 
+                           Width="100"/>
+
+            <CheckBox x:Name="changeHasGarageCheckBox"
+                          Margin="50,1,1,1" />
+
+
+
+        </StackPanel>
+
+        <StackPanel Name="commercialStackPanel" Grid.Row="3" Grid.Column="2" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="changeSaleOrRentTextBlock" 
+                           Text="Sale or Rent" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <ComboBox x:Name="changeSaleOrRentComboBox" Margin="1" Width="100">
+                    <ComboBoxItem Content="Sale"/>
+                    <ComboBoxItem Content="Rent"/>
+
+                </ComboBox>
+
+                <TextBlock x:Name="changeNrOfFloorsTextBlock" 
+                           Text="Number of Floors" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="changeNrOfFloorsTextBox" Margin="1" Width="100" />
+
+                <TextBlock x:Name="changeHasParkingTextBlock" 
+                           Text="Has Parking" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+                <CheckBox x:Name="changeHasParkingCheckBox"
+                          Margin="1" Checked="changeHasParkingCheckBox_Checked" Unchecked="changeHasParkingCheckBox_Unchecked" />
+
+                <TextBlock x:Name="changeNrOfParkingTextBlock" 
+                           Text="Parking Spaces" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="changeNrOfParkingTextBox" Margin="1" Width="100" />
+
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Name="commercialStackPanel2" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="changeHasInventoryTextBlock" 
+                           Text="Has Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="changeHasInventoryCheckBox"
+                          Margin="1" Unchecked="changeHasInventoryCheckBox_Unchecked" Checked="changeHasInventoryCheckBox_Checked" />
+
+                <TextBlock x:Name="changeTypeOfInventoryTextBlock" 
+                           Text="Type of Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <ComboBox x:Name="changeHasInventoryComboBox" Margin="1" Width="100">
+                    <ComboBoxItem Content="Groceries"/>
+                    <ComboBoxItem Content="Electronics"/>
+                    <ComboBoxItem Content="Textiles"/>
+                    <ComboBoxItem Content="Hardware"/>
+                    <ComboBoxItem Content="Sport"/>
+                    <ComboBoxItem Content="Office"/>
+                    <ComboBoxItem Content="Outdoor"/>
+
+                </ComboBox>
+
+            </StackPanel>
+
+
+        </StackPanel>
+
+        <StackPanel Name="institutionalStackPanel" Grid.Row="1" Grid.Column="2" HorizontalAlignment="Center">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="changeNrOfFloorsInstitTextBlock" 
+                           Text="Number of Floors" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="changeNrOfFloorsInstitTextBox" Margin="1" Width="100" />
+
+                <TextBlock x:Name="changeHasParkingInstitTextBlock" 
+                           Text="Has Parking" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="changeHasParkingInstitCheckBox" 
+                          Margin="1" Checked="changeHasParkingInstitCheckBox_Checked" Unchecked="changeHasParkingInstitCheckBox_Unchecked" />
+
+                <TextBlock x:Name="changeNrOfParkingInstitTextBlock" 
+                           Text="Parking Spaces" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <TextBox x:Name="changeNrOfParkingInstitTextBox" Margin="1" Width="100" />
+            </StackPanel>
+        </StackPanel>
+
+        <StackPanel Name="institutionalStackPanel2" Grid.Row="3" Grid.Column="3" HorizontalAlignment="Left">
+            <StackPanel Orientation="Vertical">
+
+                <TextBlock x:Name="changeHasInventoryInstitTextBlock" 
+                           Text="Has Inventory" 
+                           Foreground="White"
+                           Margin="1" 
+                           Width="100"/>
+
+                <CheckBox x:Name="changeHasInventoryInstitCheckBox"
+                          Margin="1"/>
+
+            </StackPanel>
+        </StackPanel>
+
+        <Button x:Name="changeSubmitButton" 
+                        Content="Change"
+                        Margin="0,152,50,28" 
+                        
+                        Grid.Column="3" 
+                        Grid.ColumnSpan="1" 
+                        Grid.Row="2" 
+                        Panel.ZIndex="10"
+                        Visibility="Visible" Click="changeSubmitButton_Click">
+
+            <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content="Submit"/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+
     </Grid>
 </UserControl>

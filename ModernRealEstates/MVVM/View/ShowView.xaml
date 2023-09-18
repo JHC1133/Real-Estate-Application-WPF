@@ -22,13 +22,12 @@
                        Margin="40,0,0,1" 
                        Width="100" 
                        HorizontalAlignment="Left"/>
-
+            
             <ListBox x:Name="estateListBox" 
-                     ItemsSource="{Binding EstatesCollection}"                    
-                     HorizontalAlignment="Left"
-                     Width="510" Height="100" 
-                     Margin="40,0">
-                
+                     ItemsSource="{Binding EstatesCollection}"
+                     Width="502" Height="341" 
+                     >
+
                 <ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding DisplayText}"/>
