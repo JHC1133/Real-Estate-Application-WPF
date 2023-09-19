@@ -21,7 +21,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.InstitutionalBuildings
 
         public override string EstateToText()
         {
-            return $"{ID} | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Fee: {MonthlyFee} kr | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {numberOfFloors} | Rooms: {numberOfRooms} | Parking: {hasParking} | Number of Parking Spaces: {numberOfParkingSlots} | Inventory: {hasInventory} | University";
+            return $"{ID} | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Fee: {MonthlyFee} kr | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {numberOfFloors} | Parking: {hasParking} | Number of Parking Spaces: {numberOfParkingSlots} | Inventory: {hasInventory} | University";
         }
     }
 }

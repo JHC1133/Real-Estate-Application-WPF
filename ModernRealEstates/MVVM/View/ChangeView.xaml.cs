@@ -84,11 +84,51 @@ namespace ModernRealEstates.MVVM.View
                     changeNrOfRoomsTextBox.Text = residential.NumberOfRooms.ToString();
                     changeNrOfBedroomsTextBox.Text = residential.NumberOfBedrooms.ToString();
                     changeNrOfBathroomsTextBox.Text = residential.NumberOfBathrooms.ToString();
+
                     changeStreetTextBox.Text = residential.Address.Street;
                     changeCityTextBox.Text = residential.Address.City;
                     changeZipCodeTextBox.Text = residential.Address.Zipcode;
-                    countryComboBox.Text = residential.Address.Country.ToString();
+
+                    countryComboBox.Text = residential.Address.Country;
                     changeHasGarageCheckBox.IsChecked = residential.HasGarage;
+                }
+                else if (estate is Commercial)
+                {
+                    commercial = (Commercial)estate;
+                    changePriceTextBox.Text = commercial.Price.ToString();
+                    changeSquareFtTextBox.Text = commercial.SquareFeet.ToString();
+                    changeFeeTextBox.Text = commercial.MonthlyFee.ToString();
+                    changeNrOfFloorsTextBox.Text = commercial.NumberOfFloors.ToString();
+                    changeNrOfParkingTextBox.Text = commercial.NumberOfParkingSlots.ToString();
+
+                    changeSaleOrRentComboBox.Text = commercial.SaleOrRent;
+                    countryComboBox.Text = commercial.Address.Country.ToString();
+
+                    changeHasParkingCheckBox.IsChecked = commercial.HasParking;
+                    changeHasInventoryCheckBox.IsChecked = commercial.HasInventory;
+
+                    changeStreetTextBox.Text = commercial.Address.Street;
+                    changeCityTextBox.Text = commercial.Address.City;
+                    changeZipCodeTextBox.Text = commercial.Address.Zipcode;
+                    changeTypeOfInventoryComboBox.Text = commercial.InventoryType;
+                }
+                else if (estate is Institutional)
+                {
+                    institutional = (Institutional)estate;
+                    changePriceTextBox.Text = institutional.Price.ToString();
+                    changeSquareFtTextBox.Text = institutional.SquareFeet.ToString();
+                    changeFeeTextBox.Text = institutional.MonthlyFee.ToString();
+                    changeNrOfFloorsInstitTextBox.Text = institutional.NumberOfFloors.ToString();
+                    changeNrOfParkingInstitTextBox.Text = institutional.NumberOfParkingSlots.ToString();
+
+                    changeStreetTextBox.Text = institutional.Address.Street;
+                    changeCityTextBox.Text = institutional.Address.City;
+                    changeZipCodeTextBox.Text = institutional.Address.Zipcode;
+
+                    countryComboBox.Text = institutional.Address.Country.ToString();
+
+                    changeHasParkingInstitCheckBox.IsChecked = institutional.HasParking;
+                    changeHasInventoryInstitCheckBox.IsChecked = institutional.HasInventory;
                 }
                 
             }
@@ -129,8 +169,68 @@ namespace ModernRealEstates.MVVM.View
                     }
                     break;
                 case BuildingTypes.Institutional:
+
+                    if (changeInstitutionalFormIsCompleted())
+                    {
+                        if (int.TryParse(changeNrOfFloorsInstitTextBox.Text, out int numberOfFloors) &&
+                            int.TryParse(changeNrOfParkingInstitTextBox.Text, out int numberOfParking) &&
+                            int.TryParse(changePriceTextBox.Text, out int price) &&
+                            int.TryParse(changeSquareFtTextBox.Text, out int squareFeet) &&
+                            int.TryParse(changeFeeTextBox.Text, out int monthlyFee) &&
+                            countryComboBox.SelectedItem != null &&
+                            changeComboBox.SelectedItem != null)
+                        {
+                            institutional.Price = price;
+                            institutional.PricePerSqFeet = squareFeet;
+                            institutional.MonthlyFee = monthlyFee;
+                            institutional.NumberOfFloors = numberOfFloors;
+                            institutional.NumberOfParkingSlots = numberOfParking;
+
+                            institutional.Address.City = changeCityTextBox.Text;
+                            institutional.Address.Street = changeStreetTextBox.Text;
+                            institutional.Address.Zipcode = changeZipCodeTextBox.Text;
+                            institutional.Address.Country = countryComboBox.Text;
+                            institutional.BuildingType = changeComboBox.Text;
+
+                            institutional.HasInventory = changeHasInventoryInstitCheckBox.IsChecked;
+                            institutional.HasParking = changeHasParkingInstitCheckBox.IsChecked;
+                            RefreshListBox();
+                            ClearInstitutionalForm();
+                        }
+                        break;
+                    }
                     break;
                 case BuildingTypes.Commercial:
+
+                    if (changeCommercialFormIsCompleted())
+                    {
+                        if (int.TryParse(changeNrOfFloorsTextBox.Text, out int numberOfFloors) &&
+                            int.TryParse(changeNrOfParkingTextBox.Text, out int numberOfParking) &&
+                            int.TryParse(changePriceTextBox.Text, out int price) &&
+                            int.TryParse(changeSquareFtTextBox.Text, out int squareFeet) &&
+                            countryComboBox.SelectedItem != null &&
+                            changeComboBox.SelectedItem != null)
+                        {
+                            commercial.Price = price;
+                            commercial.PricePerSqFeet = squareFeet;
+                            commercial.NumberOfFloors = numberOfFloors;
+                            commercial.NumberOfParkingSlots = numberOfParking;
+
+                            commercial.Address.City = changeCityTextBox.Text;
+                            commercial.Address.Street = changeStreetTextBox.Text;
+                            commercial.Address.Zipcode = changeZipCodeTextBox.Text;
+
+                            commercial.Address.Country = countryComboBox.Text;
+                            commercial.BuildingType = changeComboBox.Text;
+                            commercial.InventoryType = changeTypeOfInventoryComboBox.Text;
+
+                            commercial.HasInventory = changeHasInventoryCheckBox.IsChecked;
+                            commercial.HasParking = changeHasParkingCheckBox.IsChecked;
+                            RefreshListBox();
+                            ClearCommercialForm();
+                        }
+                    }
+
                     break;
                 default:
                     break;
@@ -300,13 +400,13 @@ namespace ModernRealEstates.MVVM.View
         private void changeHasInventoryCheckBox_Unchecked(object sender, RoutedEventArgs e)
         {
             changeTypeOfInventoryTextBlock.Visibility = Visibility.Collapsed;
-            changeHasInventoryComboBox.Visibility = Visibility.Collapsed;
+            changeTypeOfInventoryComboBox.Visibility = Visibility.Collapsed;
         }
 
         private void changeHasInventoryCheckBox_Checked(object sender, RoutedEventArgs e)
         {
             changeTypeOfInventoryTextBlock.Visibility = Visibility.Visible;
-            changeHasInventoryComboBox.Visibility = Visibility.Visible;
+            changeTypeOfInventoryComboBox.Visibility = Visibility.Visible;
         }
 
         private void changeHasParkingCheckBox_Checked(object sender, RoutedEventArgs e)
@@ -393,7 +493,7 @@ namespace ModernRealEstates.MVVM.View
             changeNrOfParkingTextBox.Clear();
 
             changeSaleOrRentComboBox.Text = null;
-            changeHasInventoryComboBox.Text = null;
+            changeTypeOfInventoryComboBox.Text = null;
             countryComboBox.Text = null;
             changeHasParkingCheckBox.IsChecked = false;
             changeHasInventoryCheckBox.IsChecked = false;

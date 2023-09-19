@@ -223,7 +223,7 @@ namespace ModernRealEstates.MVVM.View
                             if (buildingType == "Apartment")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearResidentialForm();
@@ -231,14 +231,14 @@ namespace ModernRealEstates.MVVM.View
                             else if (buildingType == "Townhouse")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Townhouse(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new Townhouse(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString());
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Villa")
                             {                              
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Villa(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new Villa(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString());
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearResidentialForm();
                             }                           
@@ -266,7 +266,7 @@ namespace ModernRealEstates.MVVM.View
                             if (buildingType == "Hospital")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Hospital(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new Hospital(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 Debug.WriteLine("Added Hospital");
@@ -275,7 +275,7 @@ namespace ModernRealEstates.MVVM.View
                             else if (buildingType == "School")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new School(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new School(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 Debug.WriteLine("Added school");
@@ -284,7 +284,7 @@ namespace ModernRealEstates.MVVM.View
                             else if (buildingType == "University")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new University(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addComboBox.SelectedItem.ToString());
+                                estate = new University(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 Debug.WriteLine("Added Uni");
@@ -313,7 +313,7 @@ namespace ModernRealEstates.MVVM.View
                             if (buildingType == "Shop")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Shop(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.SelectedItem.ToString());
+                                estate = new Shop(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearCommercialForm();
@@ -321,7 +321,7 @@ namespace ModernRealEstates.MVVM.View
                             else if (buildingType == "Warehouse")
                             {
                                 address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-                                estate = new Warehouse(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.SelectedItem.ToString());
+                                estate = new Warehouse(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.Text.ToString());
 
                                 SharedData.Instance.EstatesList.Add(estate);
                                 ClearCommercialForm();

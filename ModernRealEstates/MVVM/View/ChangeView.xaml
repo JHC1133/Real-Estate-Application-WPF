@@ -123,7 +123,8 @@
             <TextBlock x:Name="changeCountryTextBlock" Text="Country" Foreground="White"
                                Margin="1" Width="100"/>
             <!--<TextBox x:Name="changeCountryTextBox" Margin="1" Width="100" />-->
-            <ComboBox x:Name="countryComboBox" Margin="1" Width="100"/>
+            <ComboBox x:Name="countryComboBox" Margin="1" Width="100"
+                      ItemsSource="{Binding Countries}"/>
         </StackPanel>
 
         <StackPanel Name="residentialStackPanel" Orientation="Vertical"
@@ -234,7 +235,7 @@
                            Margin="1" 
                            Width="100"/>
 
-                <ComboBox x:Name="changeHasInventoryComboBox" Margin="1" Width="100">
+                <ComboBox x:Name="changeTypeOfInventoryComboBox" Margin="1" Width="100">
                     <ComboBoxItem Content="Groceries"/>
                     <ComboBoxItem Content="Electronics"/>
                     <ComboBoxItem Content="Textiles"/>
