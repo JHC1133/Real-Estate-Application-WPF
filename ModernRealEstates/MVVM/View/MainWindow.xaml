@@ -31,13 +31,13 @@
                     Height="25"
                     Command="{Binding Path=NavigateToChangeViewCommand}"/>
 
-            <Button Content="Delete"
+            <!--<Button Content="Delete"
                     Height="25"
                     Command="{Binding Path=NavigateToDeleteViewCommand}"/>
 
             <Button Content="Settings"
                     Height="25"
-                    Command="{Binding Path=NavigateToSettingsViewCommand}"/>
+                    Command="{Binding Path=NavigateToSettingsViewCommand}"/>-->
 
         </StackPanel>
 

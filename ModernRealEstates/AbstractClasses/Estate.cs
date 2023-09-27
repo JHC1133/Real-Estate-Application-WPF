@@ -22,7 +22,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 
         protected string country;
         protected string buildingType;
-
+        protected string imageFilePath;
 
         protected bool? hasParking;
         protected bool? hasInventory;
@@ -44,9 +44,10 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public bool? HasInventory { get => hasInventory; set => hasInventory = value; }
         public int? NumberOfParkingSlots { get => numberOfParkingSlots; set => numberOfParkingSlots = value; }
         public int NumberOfFloors { get => numberOfFloors; set => numberOfFloors = value; }
+        public string ImageFilePath { get => imageFilePath; set => imageFilePath = value; }
 
 
-        public Estate(int price, Address address, string buildingType)
+        public Estate(int price, Address address, string buildingType, string imageFilePath)
         {
 
         }

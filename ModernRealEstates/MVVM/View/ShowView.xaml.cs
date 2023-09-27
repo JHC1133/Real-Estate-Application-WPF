@@ -27,21 +27,29 @@ namespace ModernRealEstates.MVVM.View
         {
             InitializeComponent();
             DataContext = SharedData.Instance;
-
-            estateListBox.ItemsSource = SharedData.Instance.EstatesList;
-
+            estateListBox.ItemsSource = SharedData.Instance.EstateManager.List;
         }
 
         private void deleteSubmitButton_Click(object sender, RoutedEventArgs e)
         {
             if (estateListBox.SelectedItem != null)
             {
-                SharedData.Instance.EstatesList.Remove((Estate)estateListBox.SelectedItem);
+                SharedData.Instance.EstateManager.DeleteAt(estateListBox.SelectedIndex);
+                estateListBox.Items.Refresh();
 
-                foreach (Estate estate in SharedData.Instance.EstatesList)
+                foreach (Estate estate in SharedData.Instance.EstateManager.List)
                 {
                     Debug.WriteLine($"Address: {estate.Address.Street}, {estate.Address.City}, {estate.Address.Zipcode}");
                 }
+                estateImage.Source = null;
+            }
+        }
+
+        private void estateListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            if (estateListBox.SelectedItem is Estate selectedEstate)
+            {
+                estateImage.Source = new BitmapImage(new Uri(selectedEstate.ImageFilePath));
             }
         }
     }

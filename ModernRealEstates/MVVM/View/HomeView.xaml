@@ -10,7 +10,7 @@
         <StackPanel VerticalAlignment="Center"
                     HorizontalAlignment="Center">
 
-            <TextBlock Text="Home"
+            <!--<TextBlock Text="Home"
                         Foreground="White"
                         FontSize="25"/>
 
@@ -20,7 +20,11 @@
 
             <Button Content="Show"
                     Height="25"
-                    Command="{Binding Path=NavigateToShowViewCommand}"/>
+                    Command="{Binding Path=NavigateToShowViewCommand}"/>-->
+
+            <Image x:Name="homeImage" Source="C:\Users\Joar\Documents\Skola\C# for non-beginners\A1\RealEstatePhoto.png"
+                   Width="350"
+                   Height="350"/>
 
         </StackPanel>
     </Grid>

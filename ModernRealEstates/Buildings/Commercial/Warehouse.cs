@@ -10,8 +10,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings
     internal class Warehouse : Commercial
     {
 
-        public Warehouse(int price, string saleOrRent, int squareFeet, Address address, int numberOfFloors, bool hasParking, int numberOfParkingSlots, bool hasInventory, string inventoryType, string buildingType) 
-            : base(price, saleOrRent, squareFeet, address, numberOfFloors, hasParking, numberOfParkingSlots, hasInventory, inventoryType, buildingType)
+        public Warehouse(int price, string saleOrRent, int squareFeet, Address address, int numberOfFloors, bool hasParking, int numberOfParkingSlots, bool hasInventory, string inventoryType, string buildingType, string imageFilePath) 
+            : base(price, saleOrRent, squareFeet, address, numberOfFloors, hasParking, numberOfParkingSlots, hasInventory, inventoryType, buildingType, imageFilePath)
         {
         }
 

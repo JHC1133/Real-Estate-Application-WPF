@@ -17,7 +17,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public string SaleOrRent { get => saleOrRent; set => saleOrRent = value; }
         public string InventoryType { get => inventoryType; set => inventoryType = value; }
 
-        protected Commercial(int price, string saleOrRent,  int squareFeet, Address address, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string inventoryType, string buildingType) : base(price, address, buildingType)
+        protected Commercial(int price, string saleOrRent,  int squareFeet, Address address, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string inventoryType, string buildingType, string imageFilePath) 
+            : base(price, address, buildingType, imageFilePath)
         {
             this.id = staticID++;
             this.Address = address;
@@ -30,6 +31,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             this.InventoryType = inventoryType;
             this.BuildingType = buildingType;
             this.SaleOrRent = saleOrRent;
+            this.ImageFilePath = imageFilePath;
 
         }
     }

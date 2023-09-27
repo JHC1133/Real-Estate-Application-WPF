@@ -21,7 +21,38 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Row="3" Grid.Column="0" HorizontalAlignment="Left">
+        <StackPanel Grid.Row="1" Grid.Column="3" HorizontalAlignment="Left" Orientation="Vertical" Margin="0,100,0,0">
+            <TextBlock x:Name="addImage"
+                       Text="Add Image"
+                       Foreground="White"/>
+            
+            <Button x:Name="addImageButton" Margin="0,5,0,0" Click="addImageButton_Click">
+                
+                <Button.Style>
+                <Style TargetType="Button">
+                    <Setter Property="Background" Value="LightGray"/>
+                    <Style.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter Property="Background" Value="LightBlue"/>
+                        </Trigger>
+                    </Style.Triggers>
+                </Style>
+            </Button.Style>
+
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Border CornerRadius="9"
+                                    Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" Content=" Open File "/>
+                    </Border>
+                </ControlTemplate>
+            </Button.Template>
+            </Button>
+            
+
+        </StackPanel>
+
+        <StackPanel Grid.Row="2" Grid.Column="0" HorizontalAlignment="Left">
             <StackPanel Orientation="Vertical">
                 <TextBlock x:Name="addBuildingType" Text="Building Type" Foreground="White"
                                Margin="1" Width="100"/>

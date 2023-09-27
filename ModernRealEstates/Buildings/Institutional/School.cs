@@ -9,8 +9,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.InstitutionalBuildings
 {
     internal class School : Institutional
     {
-        public School(int price, int monthlyFee, Address address, int squareFeet, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string buildingType) 
-            : base(price, monthlyFee, address, squareFeet, numberOfFloors, hasParking, numberOfParkingSlots, hasInventory, buildingType)
+        public School(int price, int monthlyFee, Address address, int squareFeet, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string buildingType, string imageFilePath) 
+            : base(price, monthlyFee, address, squareFeet, numberOfFloors, hasParking, numberOfParkingSlots, hasInventory, buildingType, imageFilePath)
         {
         }
 

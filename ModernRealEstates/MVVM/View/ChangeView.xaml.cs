@@ -37,14 +37,15 @@ namespace ModernRealEstates.MVVM.View
             LoadCountriesComboBox();
             DataContext = SharedData.Instance;
 
-            estateListBox.ItemsSource = SharedData.Instance.EstatesList;
+            estateListBox.ItemsSource = SharedData.Instance.EstateManager.List;
         }
 
         private enum BuildingTypes
         {
             Residential,
             Institutional,
-            Commercial
+            Commercial,
+
         }
 
         private void RefreshListBox()
@@ -133,8 +134,24 @@ namespace ModernRealEstates.MVVM.View
                 
             }
         }
+
+        private bool AddressBoxIsValid()
+        {
+            if (changeStreetTextBox.Text != null && changeCityTextBox.Text != null && changeZipCodeTextBox.Text != null && countryComboBox.Text != null)
+            {
+                return true;
+            }
+            return false;
+        }
+
         private void changeSubmitButton_Click(object sender, RoutedEventArgs e)
         {
+            Address address;
+            if (AddressBoxIsValid())
+            {
+                address = new Address(changeStreetTextBox.Text, changeCityTextBox.Text, changeZipCodeTextBox.Text, countryComboBox.Text);
+            }
+            
             switch (currentBT)
             {
                 case BuildingTypes.Residential:
@@ -150,6 +167,7 @@ namespace ModernRealEstates.MVVM.View
                             countryComboBox.SelectedItem != null &&
                             changeComboBox.SelectedItem != null)
                         {
+                            //Estate estate = new Residential(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBedrooms, numberOfBathrooms, changeHasGarageCheckBox.IsChecked, changeComboBox.Text, residential.ImageFilePath);
                             residential.Price = price;
                             residential.PricePerSqFeet = squareFeet;
                             residential.MonthlyFee = monthlyFee;
@@ -162,7 +180,7 @@ namespace ModernRealEstates.MVVM.View
                             residential.Address.Country = countryComboBox.Text;
                             residential.BuildingType = changeComboBox.Text;
                             residential.HasGarage = changeHasGarageCheckBox.IsChecked;
-                            RefreshListBox();
+                            estateListBox.Items.Refresh();
                             ClearResidentialForm();
                         }
                         break;
@@ -194,7 +212,7 @@ namespace ModernRealEstates.MVVM.View
 
                             institutional.HasInventory = changeHasInventoryInstitCheckBox.IsChecked;
                             institutional.HasParking = changeHasParkingInstitCheckBox.IsChecked;
-                            RefreshListBox();
+                            estateListBox.Items.Refresh();
                             ClearInstitutionalForm();
                         }
                         break;
@@ -226,7 +244,7 @@ namespace ModernRealEstates.MVVM.View
 
                             commercial.HasInventory = changeHasInventoryCheckBox.IsChecked;
                             commercial.HasParking = changeHasParkingCheckBox.IsChecked;
-                            RefreshListBox();
+                            estateListBox.Items.Refresh();
                             ClearCommercialForm();
                         }
                     }

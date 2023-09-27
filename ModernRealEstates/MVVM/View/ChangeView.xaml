@@ -20,17 +20,6 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel VerticalAlignment="Center"
-                    HorizontalAlignment="Center">
-
-            <TextBlock Text="Change"
-                        Foreground="White"
-                        FontSize="25"/>
-
-            
-
-        </StackPanel>
-        
         <StackPanel Grid.Column="0" Grid.Row="0" Grid.ColumnSpan="4">
             
             <TextBlock x:Name="currentListingsTextBlock" Text="Current listings" 

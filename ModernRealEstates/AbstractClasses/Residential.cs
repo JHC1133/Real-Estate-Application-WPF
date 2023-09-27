@@ -18,8 +18,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         public int NumberOfBathrooms { get => numberOfBathrooms; set => numberOfBathrooms = value; } 
         public bool? HasGarage { get => hasGarage; set => hasGarage = value; }
 
-        public Residential(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType) 
-            : base(price, address, buildingType)
+        public Residential(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath) 
+            : base(price, address, buildingType, imageFilePath)
         {
             this.id = staticID++;
             this.Address = address;
@@ -31,6 +31,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             this.NumberOfRooms = numberOfRooms;
             this.hasGarage = hasGarage;
             this.BuildingType = buildingType;
+            this.ImageFilePath = imageFilePath;
         }
 
     }

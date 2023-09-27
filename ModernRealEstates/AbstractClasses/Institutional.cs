@@ -8,8 +8,8 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 {
     internal abstract class Institutional : Estate
     {
-        protected Institutional(int price, int monthlyFee, Address address, int squareFeet, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string buildingType) 
-            : base(price, address, buildingType)
+        protected Institutional(int price, int monthlyFee, Address address, int squareFeet, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string buildingType, string imageFilePath) 
+            : base(price, address, buildingType, imageFilePath)
         {
             this.id = staticID++;
             this.Address = address;
@@ -21,6 +21,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             this.NumberOfFloors = numberOfFloors;
             this.MonthlyFee = monthlyFee;
             this.BuildingType = buildingType;
+            this.ImageFilePath = imageFilePath;
         }
     }
 }
