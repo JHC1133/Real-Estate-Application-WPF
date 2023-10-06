@@ -13,7 +13,12 @@
             <ColumnDefinition/>
         </Grid.ColumnDefinitions>
 
-        <StackPanel Grid.Column="0">
+        <!--<Grid.RowDefinitions>
+            <RowDefinition Height="20"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>-->
+
+        <StackPanel Grid.Column="0" Grid.Row="1" Margin="0,20,0,0">
             
             <Button Content="Home"
                     Height="25"
@@ -39,7 +44,27 @@
                     Height="25"
                     Command="{Binding Path=NavigateToSettingsViewCommand}"/>-->
 
+            
         </StackPanel>
+
+        <DockPanel>
+
+            <Menu DockPanel.Dock="Left" Height="20" VerticalAlignment="Top">
+                <MenuItem Header="File">
+                    <MenuItem Header="New" x:Name="menuFileNew" Click="menuFileNew_Click" />
+                    <MenuItem Header="Open" x:Name="menuFileOpen" Click="menuFileOpen_Click"/>
+                    <MenuItem Header="Save" x:Name="menuFileSave" Click="menuFileSave_Click"/>
+                    <MenuItem Header="Save As" x:Name="menuFileSaveAs" Click="menuFileSaveAs_Click"/>
+                    <MenuItem Header="Exit" x:Name="menuFileExit"/>
+                </MenuItem>
+            </Menu>
+
+            <Menu DockPanel.Dock="Left" Height="20" VerticalAlignment="Top">
+                <MenuItem Header="Help">
+                    <MenuItem Header="Google"/>
+                </MenuItem>
+            </Menu>
+        </DockPanel>
 
         <ContentControl Grid.Column="1" Content="{Binding Path=Navigation.CurrentView}">
             

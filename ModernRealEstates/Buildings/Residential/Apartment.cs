@@ -12,7 +12,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings
     {
 
         public Apartment(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath) 
-            : base(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBedrooms, numberOfBathrooms, hasGarage, buildingType, imageFilePath)
+            : base(price = 100, squareFeet, monthlyFee, address, numberOfRooms, numberOfBedrooms, numberOfBathrooms, hasGarage, buildingType, imageFilePath = "hej")
         {
         }
 

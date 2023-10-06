@@ -38,6 +38,7 @@ namespace ModernRealEstates.MVVM.View
             DataContext = SharedData.Instance;
 
             estateListBox.ItemsSource = SharedData.Instance.EstateManager.List;
+            SharedData.Instance.WindowsList.Add(this);
         }
 
         private enum BuildingTypes
@@ -483,7 +484,7 @@ namespace ModernRealEstates.MVVM.View
             return true;
         }
 
-        private void ClearResidentialForm()
+        public void ClearResidentialForm()
         {
             changePriceTextBox.Clear();
             changeSquareFtTextBox.Clear();
@@ -494,12 +495,13 @@ namespace ModernRealEstates.MVVM.View
             changeNrOfBathroomsTextBox.Clear();
             changeNrOfBedroomsTextBox.Clear();
             changeNrOfRoomsTextBox.Clear();
+            changeComboBox.SelectedIndex = 0;
 
             countryComboBox.Text = null;
             changeHasGarageCheckBox.IsChecked = false;
         }
 
-        private void ClearCommercialForm()
+        public void ClearCommercialForm()
         {
             changePriceTextBox.Clear();
             changeSquareFtTextBox.Clear();
@@ -509,6 +511,7 @@ namespace ModernRealEstates.MVVM.View
             changeZipCodeTextBox.Clear();
             changeNrOfFloorsTextBox.Clear();
             changeNrOfParkingTextBox.Clear();
+            changeComboBox.SelectedIndex = 0;
 
             changeSaleOrRentComboBox.Text = null;
             changeTypeOfInventoryComboBox.Text = null;
@@ -517,7 +520,7 @@ namespace ModernRealEstates.MVVM.View
             changeHasInventoryCheckBox.IsChecked = false;
         }
 
-        private void ClearInstitutionalForm()
+        public void ClearInstitutionalForm()
         {
             changePriceTextBox.Clear();
             changeSquareFtTextBox.Clear();
@@ -527,6 +530,7 @@ namespace ModernRealEstates.MVVM.View
             changeZipCodeTextBox.Clear();
             changeNrOfParkingInstitTextBox.Clear();
             changeNrOfFloorsInstitTextBox.Clear();
+            changeComboBox.SelectedIndex = 0;
 
             countryComboBox.Text = null;
             changeHasParkingInstitCheckBox.IsChecked = false;

@@ -40,9 +40,11 @@ namespace ModernRealEstates.MVVM.View
 
             currentBT = BuildingTypes.Residential;
             addComboBox.SelectedIndex = 0;
+            SharedData.Instance.WindowsList.Add(this);
+
         }
 
-        
+
 
         private void LoadCountriesComboBox()
         {
@@ -108,7 +110,7 @@ namespace ModernRealEstates.MVVM.View
             }
         }
 
-        private void ClearResidentialForm()
+        public void ClearResidentialForm()
         {
             addPriceTextBox.Clear();
             addSquareFtTextBox.Clear();
@@ -120,12 +122,13 @@ namespace ModernRealEstates.MVVM.View
             addNrOfBedroomsTextBox.Clear();
             addNrOfRoomsTextBox.Clear();
 
+            addComboBox.SelectedIndex = 0;
             countryComboBox.Text = null;
             addHasGarageCheckBox.IsChecked = false;
             selectedImageFilePath = string.Empty;
         }
 
-        private void ClearCommercialForm()
+        public void ClearCommercialForm()
         {
             addPriceTextBox.Clear();
             addSquareFtTextBox.Clear();
@@ -142,9 +145,11 @@ namespace ModernRealEstates.MVVM.View
             addHasParkingCheckBox.IsChecked = false;
             addHasInventoryCheckBox.IsChecked = false;
             selectedImageFilePath = string.Empty;
+            addComboBox.SelectedIndex = 0;
+
         }
 
-        private void ClearInstitutionalForm()
+        public void ClearInstitutionalForm()
         {
             addPriceTextBox.Clear();
             addSquareFtTextBox.Clear();
@@ -159,6 +164,8 @@ namespace ModernRealEstates.MVVM.View
             addHasParkingInstitCheckBox.IsChecked = false;
             addHasInventoryInstitCheckBox.IsChecked = false;
             selectedImageFilePath = string.Empty;
+            addComboBox.SelectedIndex = 0;
+
         }
 
         private bool AddResidentialFormIsCompleted()

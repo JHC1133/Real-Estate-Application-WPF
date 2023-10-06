@@ -2,12 +2,20 @@
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
+using System.IO;
 using System.Linq;
+using System.Runtime.Serialization.Formatters.Binary;
+using System.Runtime.Serialization;
 using System.Text;
 using System.Threading.Tasks;
+using System.ComponentModel.DataAnnotations;
+using System.Text.Json;
+using System.Text.Json.Serialization;
+using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
 
 namespace Joar_HC_ModernRealEstates
 {
+    [Serializable]
     internal class ListManager<T> : IListManager<T>
     {
 
@@ -46,7 +54,71 @@ namespace Joar_HC_ModernRealEstates
 
         public bool BinarySerialize(string fileName)
         {
-            throw new NotImplementedException();
+            FileStream fileStream;
+            string errorMsg;
+
+            try
+            {
+                using (fileStream = new FileStream(fileName, FileMode.Create))
+                {
+                    BinaryFormatter b = new BinaryFormatter();
+                    //b.Serialize(fileStream);
+                }
+                return true;
+            }
+            catch (Exception e)
+            {
+                errorMsg = e.Message;
+                return false;
+            }
+            
+        }
+
+        //public bool JsonSerialize(string fileName)
+        //{
+        //    string errorMsg;
+
+        //    try
+        //    {
+        //        using (FileStream fileStream = new FileStream(fileName, FileMode.Create))
+        //        {
+        //            // Serialize the contents of m_list to JSON and write it to the file.
+        //            string jsonString = JsonSerializer.Serialize(m_list);
+        //            byte[] jsonBytes = System.Text.Encoding.UTF8.GetBytes(jsonString);
+        //            fileStream.Write(jsonBytes, 0, jsonBytes.Length);
+        //        }
+        //        return true; // Serialization successful
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        errorMsg = e.Message;
+        //        Console.WriteLine("Error serializing data " + errorMsg);
+        //        return false;
+        //    }
+        //}
+
+        public bool JsonSerialize(string fileName)
+        {
+            string errorMsg;
+
+            try
+            {
+                using (StreamWriter writer = new StreamWriter(fileName))
+                {
+                    foreach (T item in m_list)
+                    {
+                        string jsonString = JsonSerializer.Serialize(item);
+                        writer.WriteLine(jsonString);
+                    }
+                    return true; // Serialization successful
+                }
+            }
+            catch (Exception e)
+            {
+                errorMsg = e.Message;
+                Console.WriteLine("Error serializing data " + errorMsg);
+                return false;
+            }
         }
 
         public bool ChangeAt(T aType, int anIndex)
