@@ -9,7 +9,6 @@ using Modern_Real_Estates_by_Joar_H_C.Interfaces;
 
 namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 {
-    [Serializable]
     internal abstract class Estate : IEstate
     {
         protected int id; //Given randomly

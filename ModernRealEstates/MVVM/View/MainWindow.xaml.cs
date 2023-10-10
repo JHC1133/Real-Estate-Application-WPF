@@ -17,6 +17,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Joar_HC_ModernRealEstates;
+using ModernRealEstates.MVVM.View;
+using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
 
 namespace ModernRealEstates
 {
@@ -105,7 +108,30 @@ namespace ModernRealEstates
 
         private void menuFileOpen_Click(object sender, RoutedEventArgs e)
         {
+            OpenFileDialog openFileDialog = new OpenFileDialog();
+            openFileDialog.Filter = "JSON Files (*.json)|*.json|All Files (*.*)|*.*";
 
+            if (openFileDialog.ShowDialog() == true)
+            {
+                string selectedFilePath = openFileDialog.FileName;
+
+                if (SharedData.Instance.EstateManager.JsonDeserialize(selectedFilePath))
+                {
+
+                    foreach (UserControl item in SharedData.Instance.WindowsList)
+                    {
+                        if (item is ShowView showView)
+                        {
+                            showView.estateListBox.Items.Refresh();
+                        }
+                    }
+                    MessageBox.Show("Deserialize from JSON file successful");
+                }
+                else
+                {
+                    MessageBox.Show("Failed to load data from JSON file.");
+                }
+            }
         }
     }
 }

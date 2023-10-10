@@ -36,13 +36,14 @@ namespace ModernRealEstates
 
             EstateManager = new EstateManager();
 
-            Address address;
+            Address address, address2;
 
             address = new Address("Kungs", "Växjö", "21133", "Deniak");
+            address2 = new Address("Killian", "Malmö", "21133", "Deniak");
 
             //Estate testate = new Apartment(150, 30, 20, address, 14, 1, 2, true, "Apartment", "C:\\Users\\Joar\\Documents\\Skola\\C# for non-beginners\\A1\\villaEx.jpg");
             Estate testate1 = new Villa(200, 20, 30, address, 5, 1, 2, true, "Villa", "C:\\Users\\Joar\\Documents\\Skola\\C# for non-beginners\\A1\\villaEx.jpg");
-            Estate estate1 = new Townhouse(300, 20, 20, address, 2, 1, 2, false, "Townhouse", "C:\\Users\\Joar\\Documents\\Skola\\C# for non-beginners\\A1\\villaEx.jpg");
+            Estate estate1 = new Townhouse(300, 20, 20, address2, 2, 1, 2, false, "Townhouse", "C:\\Users\\Joar\\Documents\\Skola\\C# for non-beginners\\A1\\villaEx.jpg");
 
 
             //EstatesList.Add(testate1);
