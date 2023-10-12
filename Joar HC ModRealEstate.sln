@@ -5,7 +5,11 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joar HC ModernRealEstates", "ModernRealEstates\Joar HC ModernRealEstates.csproj", "{867549DC-C2B4-433C-A89A-2CC65A0826C7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{BF8A2F34-65B4-4149-A66D-4C14500EFA90}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BLL", "BLL\BLL.csproj", "{BF8A2F34-65B4-4149-A66D-4C14500EFA90}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DAL", "DAL\DAL.csproj", "{435B8E9C-8F72-4822-B810-DA0E4B54D8BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UtilitiesLib", "UtilitiesLib\UtilitiesLib.csproj", "{A0D4627C-04BB-4C5B-86AC-5D87F0CDA281}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +25,14 @@ Global
 		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Release|Any CPU.Build.0 = Release|Any CPU
+		{435B8E9C-8F72-4822-B810-DA0E4B54D8BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{435B8E9C-8F72-4822-B810-DA0E4B54D8BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{435B8E9C-8F72-4822-B810-DA0E4B54D8BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{435B8E9C-8F72-4822-B810-DA0E4B54D8BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0D4627C-04BB-4C5B-86AC-5D87F0CDA281}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0D4627C-04BB-4C5B-86AC-5D87F0CDA281}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0D4627C-04BB-4C5B-86AC-5D87F0CDA281}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0D4627C-04BB-4C5B-86AC-5D87F0CDA281}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
