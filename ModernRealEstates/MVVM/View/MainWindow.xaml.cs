@@ -19,7 +19,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Joar_HC_ModernRealEstates;
 using ModernRealEstates.MVVM.View;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+using BLL.AbstractClasses;
+using BLL;
 
 namespace ModernRealEstates
 {

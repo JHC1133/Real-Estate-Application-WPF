@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+using BLL.AbstractClasses;
 
-namespace Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings
+namespace BLL
 {
-    internal class Townhouse : Residential
+    public class Townhouse : Residential
     {
-        public Townhouse(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath) 
+        public Townhouse(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath)
             : base(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBedrooms, numberOfBathrooms, hasGarage, buildingType, imageFilePath)
         {
         }

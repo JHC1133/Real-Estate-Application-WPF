@@ -1,9 +1,4 @@
 ﻿using Microsoft.Win32;
-using Modern_Real_Estates_by_Joar_H_C;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
-using Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings;
-using Modern_Real_Estates_by_Joar_H_C.Buildings.InstitutionalBuildings;
-using Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -19,6 +14,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
+using BLL.AbstractClasses;
 
 namespace ModernRealEstates.MVVM.View
 {

@@ -1,7 +1,5 @@
-﻿using Joar_HC_ModernRealEstates;
-using Modern_Real_Estates_by_Joar_H_C;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
-using Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings;
+﻿using Modern_Real_Estates_by_Joar_H_C;
+using BLL.AbstractClasses;
 using ModernRealEstates.MVVM.View;
 using System;
 using System.Collections.Generic;
@@ -12,7 +10,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace ModernRealEstates
+namespace BLL
 {
     internal class SharedData
     {
@@ -53,7 +51,7 @@ namespace ModernRealEstates
             //EstateManager.Add(testate);
             EstateManager.Add(testate1);
             EstateManager.Add(estate1);
-            
+
         }
 
         public bool HasUnSavedData()
@@ -87,9 +85,9 @@ namespace ModernRealEstates
 
                     else if (item is ShowView showView)
                     {
-                        SharedData.Instance.estateManager.List.Clear();
+                        Instance.estateManager.List.Clear();
                     }
-                }             
+                }
             }
         }
 

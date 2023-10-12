@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Modern_Real_Estates_by_Joar_H_C
+namespace BLL
 {
     [Serializable]
     public class Address
@@ -18,17 +18,17 @@ namespace Modern_Real_Estates_by_Joar_H_C
 
         public Address(string street, string city, string zipcode)
         {
-            this.Street = street;
-            this.City = city;
-            this.Zipcode = zipcode;
+            Street = street;
+            City = city;
+            Zipcode = zipcode;
         }
 
         public Address(string street, string city, string zipcode, string country)
         {
-            this.Street = street;
-            this.City = city;
-            this.Zipcode = zipcode;
-            this.Country = country;
+            Street = street;
+            City = city;
+            Zipcode = zipcode;
+            Country = country;
 
         }
 

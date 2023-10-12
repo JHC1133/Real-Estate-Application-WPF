@@ -1,6 +1,4 @@
-﻿using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
-using Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.IO;
@@ -16,6 +14,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using BLL;
 
 namespace ModernRealEstates.MVVM.View
 {

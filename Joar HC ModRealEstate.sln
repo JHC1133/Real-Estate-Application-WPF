@@ -5,6 +5,8 @@ VisualStudioVersion = 17.5.33516.290
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Joar HC ModernRealEstates", "ModernRealEstates\Joar HC ModernRealEstates.csproj", "{867549DC-C2B4-433C-A89A-2CC65A0826C7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BLL", "BLL\BLL.csproj", "{BF8A2F34-65B4-4149-A66D-4C14500EFA90}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{867549DC-C2B4-433C-A89A-2CC65A0826C7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{867549DC-C2B4-433C-A89A-2CC65A0826C7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{867549DC-C2B4-433C-A89A-2CC65A0826C7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF8A2F34-65B4-4149-A66D-4C14500EFA90}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

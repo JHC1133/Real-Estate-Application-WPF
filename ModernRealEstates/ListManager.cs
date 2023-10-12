@@ -11,10 +11,9 @@ using System.Threading.Tasks;
 using System.ComponentModel.DataAnnotations;
 using System.Text.Json;
 using System.Text.Json.Serialization;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
 using Newtonsoft.Json;
 
-namespace Joar_HC_ModernRealEstates
+namespace BLL
 {
     [Serializable]
     internal class ListManager<T> : IListManager<T>
@@ -45,7 +44,7 @@ namespace Joar_HC_ModernRealEstates
                 Debug.Write("There is no object to add");
                 return false;
             }
-            
+
         }
 
         public bool BinaryDeSerialize(string fileName)
@@ -72,7 +71,7 @@ namespace Joar_HC_ModernRealEstates
                 errorMsg = e.Message;
                 return false;
             }
-            
+
         }
 
         JsonSerializerSettings options = new JsonSerializerSettings
@@ -165,8 +164,8 @@ namespace Joar_HC_ModernRealEstates
                 return false;
             }
         }
-       
-    
+
+
 
         //public bool JsonSerialize(string fileName)
         //{
@@ -257,7 +256,7 @@ namespace Joar_HC_ModernRealEstates
             else
             {
                 Debug.WriteLine("The index is out of bounds");
-                return default(T);
+                return default;
             }
         }
 

@@ -1,10 +1,10 @@
-﻿using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+﻿using BLL.AbstractClasses;
 
-namespace Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings
+namespace BLL
 {
-    internal class Villa : Residential
+    public class Villa : Residential
     {
-        public Villa(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath) 
+        public Villa(int price, int squareFeet, int monthlyFee, Address address, int numberOfRooms, int numberOfBedrooms, int numberOfBathrooms, bool hasGarage, string buildingType, string imageFilePath)
             : base(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBedrooms, numberOfBathrooms, hasGarage, buildingType, imageFilePath)
         {
         }

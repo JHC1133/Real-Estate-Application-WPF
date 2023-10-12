@@ -5,11 +5,11 @@ using System.Linq;
 using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
-using Modern_Real_Estates_by_Joar_H_C.Interfaces;
+using BLL.Interfaces;
 
-namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
+namespace BLL.AbstractClasses
 {
-    internal abstract class Estate : IEstate
+    public abstract class Estate : IEstate
     {
         protected int id; //Given randomly
         protected int numberOfRooms;
@@ -66,7 +66,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         {
             return Address.Zipcode;
         }
-        
+
         public virtual string GetCity()
         {
             return Address.City;
@@ -80,6 +80,6 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
         // Used for binding in XAML
         //public string DisplayText => EstateToText();
 
-        
+
     }
 }
