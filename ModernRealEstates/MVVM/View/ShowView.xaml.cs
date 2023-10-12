@@ -28,7 +28,7 @@ namespace ModernRealEstates.MVVM.View
         {
             InitializeComponent();
             DataContext = SharedData.Instance;
-            estateListBox.ItemsSource = SharedData.Instance.EstateManager.List;
+            estateListBox.ItemsSource = SharedData.Instance.EstateManager.ToStringList();
             SharedData.Instance.WindowsList.Add(this);
         }
 
@@ -39,55 +39,48 @@ namespace ModernRealEstates.MVVM.View
                 SharedData.Instance.EstateManager.DeleteAt(estateListBox.SelectedIndex);
                 estateListBox.Items.Refresh();
 
-                foreach (Estate estate in SharedData.Instance.EstateManager.List)
-                {
-                    Debug.WriteLine($"Address: {estate.Address.Street}, {estate.Address.City}, {estate.Address.Zipcode}");
-                }
+                
                 estateImage.Source = null;
-            }
-
-            foreach (Estate estate in SharedData.Instance.EstateManager.List)
-            {
-                Debug.WriteLine($"Address: {estate.Address.Street}, {estate.Address.City}, {estate.Address.Zipcode}");
+                estateListBox.ItemsSource = SharedData.Instance.EstateManager.ToStringList();
             }
         }
 
         private void estateListBox_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            if (estateListBox.SelectedItem is Estate selectedEstate)
-            {
-                //estateImage.Source = new BitmapImage(new Uri(selectedEstate.ImageFilePath));
+            //if (estateListBox.SelectedItem is Estate selectedEstate)
+            //{
+            //    //estateImage.Source = new BitmapImage(new Uri(selectedEstate.ImageFilePath));
 
-                try
-                {
-                    Uri imageUri = new Uri(selectedEstate.ImageFilePath);
+            //    try
+            //    {
+            //        Uri imageUri = new Uri(selectedEstate.ImageFilePath);
 
-                    // Check if the URI scheme is "file" (local file path)
-                    if (imageUri.Scheme == Uri.UriSchemeFile)
-                    {
-                        // Check if the file exists before setting the image source
-                        if (File.Exists(imageUri.LocalPath))
-                        {
-                            estateImage.Source = new BitmapImage(imageUri);
-                        }
-                        else
-                        {
-                            // Handle the case where the file doesn't exist
-                            // Display an error message or use a default image.
-                        }
-                    }
-                    else
-                    {
-                        // Handle other URI schemes (e.g., "http://", "https://")
-                        estateImage.Source = new BitmapImage(imageUri);
-                    }
-                }
-                catch (UriFormatException ex)
-                {
-                    // Handle the invalid URI format exception (e.g., log the error or show an error message).
-                    Console.WriteLine(ex.Message);
-                }
-            }
+            //        // Check if the URI scheme is "file" (local file path)
+            //        if (imageUri.Scheme == Uri.UriSchemeFile)
+            //        {
+            //            // Check if the file exists before setting the image source
+            //            if (File.Exists(imageUri.LocalPath))
+            //            {
+            //                estateImage.Source = new BitmapImage(imageUri);
+            //            }
+            //            else
+            //            {
+            //                // Handle the case where the file doesn't exist
+            //                // Display an error message or use a default image.
+            //            }
+            //        }
+            //        else
+            //        {
+            //            // Handle other URI schemes (e.g., "http://", "https://")
+            //            estateImage.Source = new BitmapImage(imageUri);
+            //        }
+            //    }
+            //    catch (UriFormatException ex)
+            //    {
+            //        // Handle the invalid URI format exception (e.g., log the error or show an error message).
+            //        Console.WriteLine(ex.Message);
+            //    }
+            //}
         }
     }
 }

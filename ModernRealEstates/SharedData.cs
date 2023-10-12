@@ -78,11 +78,16 @@ namespace ModernRealEstates
                         changeView.ClearResidentialForm();
                     }
 
-                    if (item is AddView addView)
+                    else if (item is AddView addView)
                     {
                         addView.ClearCommercialForm();
                         addView.ClearInstitutionalForm();
                         addView.ClearResidentialForm();
+                    }
+
+                    else if (item is ShowView showView)
+                    {
+                        SharedData.Instance.estateManager.List.Clear();
                     }
                 }             
             }

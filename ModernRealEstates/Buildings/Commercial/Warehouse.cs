@@ -20,7 +20,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings
             PricePerSqFeet = Price / SquareFeet;
         }
 
-        public override string EstateToText()
+        public override string ToString()
         {
             if (SaleOrRent == "Rent" && (HasInventory.HasValue && HasInventory.Value))
             {

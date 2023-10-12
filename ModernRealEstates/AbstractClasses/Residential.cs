@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 {
-    internal abstract class Residential : Estate
+    internal class Residential : Estate
     {
 
         protected int numberOfBedrooms;

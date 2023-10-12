@@ -1,13 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics.Metrics;
-using System.Diagnostics;
-using System.IO;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
-using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
+﻿using Modern_Real_Estates_by_Joar_H_C.abstractClasses;
 
 namespace Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings
 {
@@ -23,7 +14,7 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.ResidentialBuildings
             PricePerSqFeet = Price / SquareFeet;
         }
 
-        public override string EstateToText()
+        public override string ToString()
         {
             return $"{ID} | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Fee: {MonthlyFee} kr | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Rooms: {numberOfRooms} | Bedrooms: {NumberOfBedrooms} | Bathrooms: {NumberOfBathrooms} | Garage: {hasGarage} | Villa";
         }

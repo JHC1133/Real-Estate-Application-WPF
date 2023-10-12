@@ -77,7 +77,8 @@ namespace Joar_HC_ModernRealEstates
 
         JsonSerializerSettings options = new JsonSerializerSettings
         {
-            Formatting = Newtonsoft.Json.Formatting.Indented
+            Formatting = Newtonsoft.Json.Formatting.Indented,
+            TypeNameHandling = TypeNameHandling.All,
         };
 
         public bool JsonSerialize(string fileName)
@@ -110,7 +111,7 @@ namespace Joar_HC_ModernRealEstates
                 //}
                 string? jsonString = JsonConvert.SerializeObject(m_list, options);
                 File.WriteAllText(fileName, jsonString);
-                //Debug.WriteLine("JsonString content: " + jsonString);
+                Debug.WriteLine("JsonString content: " + jsonString);
                 return true;
 
             }

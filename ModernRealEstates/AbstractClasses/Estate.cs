@@ -52,7 +52,10 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
 
         }
 
-        public abstract void CalculatePricePerSqFeet();
+        public virtual void CalculatePricePerSqFeet()
+        {
+
+        }
 
         public virtual string GetStreet()
         {
@@ -69,10 +72,13 @@ namespace Modern_Real_Estates_by_Joar_H_C.abstractClasses
             return Address.City;
         }
 
-        public abstract string EstateToText();
+        public override string ToString()
+        {
+            return "Default Text";
+        }
 
         // Used for binding in XAML
-        public string DisplayText => EstateToText();
+        //public string DisplayText => EstateToText();
 
         
     }

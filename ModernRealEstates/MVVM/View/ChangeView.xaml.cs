@@ -73,7 +73,7 @@ namespace ModernRealEstates.MVVM.View
             if (estateListBox.SelectedItem != null)
             {
                 estate = (Estate)estateListBox.SelectedItem;
-                Debug.WriteLine(estate.EstateToText());
+                Debug.WriteLine(estate.ToString());
 
                 changeComboBox.Text = estate.BuildingType.ToString();
 

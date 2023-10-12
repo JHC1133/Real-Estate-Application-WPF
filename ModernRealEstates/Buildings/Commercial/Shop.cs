@@ -20,23 +20,43 @@ namespace Modern_Real_Estates_by_Joar_H_C.Buildings.CommercialBuildings
             PricePerSqFeet = Price / SquareFeet;
         }
 
-        public override string EstateToText()
+        //public override string ToString()
+        //{
+        //    if (SaleOrRent == "Rent" && (HasInventory.HasValue && HasInventory.Value))
+        //    {
+        //        return $"{ID} | For Rent | Price: {Price} kr / month | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | Shop";
+        //    }
+        //    else if (SaleOrRent == "Sale" && (HasInventory.HasValue && HasInventory.Value))
+        //    {
+        //        return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | Shop";
+        //    }
+        //    else if (SaleOrRent == "Rent" && !(HasInventory.HasValue && HasInventory.Value))
+        //    {
+        //        return $"{ID} | For Rent | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Shop";
+        //    }
+        //    else
+        //    {
+        //        return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Shop";
+        //    }
+        //}
+
+        public override string ToString()
         {
             if (SaleOrRent == "Rent" && (HasInventory.HasValue && HasInventory.Value))
             {
-                return $"{ID} | For Rent | Price: {Price} kr / month | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | Shop";
+                return $"{ID} | For Rent | Price: {Price} kr / month | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | {BuildingType}";
             }
             else if (SaleOrRent == "Sale" && (HasInventory.HasValue && HasInventory.Value))
             {
-                return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | Shop";
+                return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Inventory: {InventoryType} | {BuildingType}";
             }
             else if (SaleOrRent == "Rent" && !(HasInventory.HasValue && HasInventory.Value))
             {
-                return $"{ID} | For Rent | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Shop";
+                return $"{ID} | For Rent | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | {BuildingType}";
             }
             else
             {
-                return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | Shop";
+                return $"{ID} | For Sale | Price: {Price} kr | SquareFeet: {SquareFeet} m^2 | Address: {Address.Street}, {Address.City}, {Address.Zipcode}, {Address.Country} | Floors: {NumberOfFloors} | Parking: {HasParking} | Number of Parking spaces: {NumberOfParkingSlots} | {BuildingType}";
             }
         }
     }

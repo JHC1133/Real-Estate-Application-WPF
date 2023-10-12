@@ -242,6 +242,10 @@ namespace ModernRealEstates.MVVM.View
                                 estate = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
 
                                 SharedData.Instance.EstateManager.Add(estate);
+                                foreach (Estate estate1 in SharedData.Instance.EstateManager.List)
+                                {
+                                    Debug.WriteLine($"Address: {estate1.Address.Street}, {estate1.Address.City}, {estate1.Address.Zipcode}");
+                                }
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Townhouse")
@@ -330,7 +334,7 @@ namespace ModernRealEstates.MVVM.View
 
                             if (buildingType == "Shop")
                             {
-                                //address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new Shop(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.Text.ToString(), selectedImageFilePath);
 
                                 SharedData.Instance.EstateManager.Add(estate);

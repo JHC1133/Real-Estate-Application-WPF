@@ -7,11 +7,14 @@ using System.Threading.Tasks;
 namespace Modern_Real_Estates_by_Joar_H_C
 {
     [Serializable]
-    internal class Address
+    public class Address
     {
         private string street, city, zipcode, country;
 
-        
+        public Address()
+        {
+
+        }
 
         public Address(string street, string city, string zipcode)
         {

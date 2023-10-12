@@ -32,11 +32,11 @@
                      ItemsSource="{Binding EstatesCollection}"
                      Width="600" Height="140" SelectionChanged="estateListBox_SelectionChanged">
 
-                <ListBox.ItemTemplate>
+                <!--<ListBox.ItemTemplate>
                     <DataTemplate>
                         <TextBlock Text="{Binding DisplayText}"/>
                     </DataTemplate>
-                </ListBox.ItemTemplate>
+                </ListBox.ItemTemplate>-->
             </ListBox>
 
             <Button x:Name="deleteSubmitButton" 

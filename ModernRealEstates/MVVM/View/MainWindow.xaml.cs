@@ -29,7 +29,8 @@ namespace ModernRealEstates
     public partial class MainWindow : Window
     {
         SaveFileDialog saveFileDialog;
-        bool hasFilePath;
+        bool hasFilePath = false;
+        bool isSaved = false;
 
         public MainWindow()
         {
@@ -39,7 +40,7 @@ namespace ModernRealEstates
 
         private void menuFileNew_Click(object sender, RoutedEventArgs e)
         {
-            if (SharedData.Instance.HasUnSavedData())
+            if (!hasFilePath)
             {
                 MessageBoxResult result = MessageBox.Show("You have unsaved data. Do you want to proceed without saving ?", "Confirmation", MessageBoxButton.YesNo, MessageBoxImage.Warning);
 
@@ -49,17 +50,17 @@ namespace ModernRealEstates
                     InitializeMainWindow();
                 }
             }
-            //else
-            //{
-            //    SharedData.Instance.InitializeUserControls();
-            //}
-            
+            else
+            {
+                SharedData.Instance.InitializeUserControls();
+                InitializeMainWindow();
+            }
+
         }
 
         private void InitializeMainWindow()
         {
             hasFilePath = false;
-            saveFileDialog = null;
         }
 
         private void menuFileSaveAs_Click(object sender, RoutedEventArgs e)
