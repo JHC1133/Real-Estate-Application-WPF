@@ -210,51 +210,105 @@ namespace ModernRealEstates.MVVM.View
             return true;
         }
 
+        private bool TryParseGeneralFields(out int price, out int squareFeet, out int monthlyFee)
+        {
+            price = 0;
+            squareFeet = 0;
+            monthlyFee = 0;
+
+            return int.TryParse(addPriceTextBox.Text, out price) &&
+                   int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
+                   int.TryParse(addFeeTextBox.Text, out monthlyFee);
+        }
+
+        private bool TryParseResidentialFields(out int numberOfBathrooms, out int numberOfBedrooms, out int numberOfRooms, out int price, out int squareFeet, out int monthlyFee)
+        {
+            numberOfBathrooms = 0;
+            numberOfBedrooms = 0;
+            numberOfRooms = 0;
+            price = 0;
+            squareFeet = 0;
+            monthlyFee = 0;
+
+            return int.TryParse(addNrOfBathroomsTextBox.Text, out numberOfBathrooms) &&
+                int.TryParse(addNrOfBedroomsTextBox.Text, out numberOfBedrooms) &&
+                int.TryParse(addNrOfRoomsTextBox.Text, out numberOfRooms) &&
+                int.TryParse(addPriceTextBox.Text, out price) &&
+                int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
+                int.TryParse(addFeeTextBox.Text, out monthlyFee) &&
+                countryComboBox.SelectedItem != null &&
+                addComboBox.SelectedItem != null &&
+                selectedImageFilePath != null;
+        }
+
+        private bool TryParseCommercialFields(out int numberOfFloors, out int numberOfParking, out int price, out int squareFeet)
+        {
+            numberOfFloors = 0;
+            numberOfParking = 0;
+            price = 0;
+            squareFeet = 0;
+
+            return int.TryParse(addNrOfFloorsTextBox.Text, out numberOfFloors) &&
+                int.TryParse(addNrOfParkingTextBox.Text, out numberOfParking) &&
+                int.TryParse(addPriceTextBox.Text, out price) &&
+                int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
+                countryComboBox.SelectedItem != null &&
+                addComboBox.SelectedItem != null &&
+                selectedImageFilePath != null;
+        }
+
+        private bool TryParseInstitutionalFields(out int numberOfFloors, out int numberOfParking, out int price, out int squareFeet, out int monthlyFee)
+        {
+            numberOfFloors = 0;
+            numberOfParking = 0;
+            price = 0;
+            squareFeet = 0;
+            monthlyFee = 0;
+
+            return int.TryParse(addNrOfFloorsInstitTextBox.Text, out numberOfFloors) &&
+                int.TryParse(addNrOfParkingInstitTextBox.Text, out numberOfParking) &&
+                int.TryParse(addPriceTextBox.Text, out price) &&
+                int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
+                countryComboBox.SelectedItem != null &&
+                addComboBox.SelectedItem != null &&
+                selectedImageFilePath != null;
+        }
+
+        private Address CreateAddress()
+        {
+            return new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+        }
+
         private void addSubmitButton_Click(object sender, RoutedEventArgs e)
         {
             Estate estate = null;
             Address address = null;
+
             switch (currentBT)
             {
                 case BuildingTypes.Residential:
 
                     if (AddResidentialFormIsCompleted())
                     {                      
-                        if (int.TryParse(addNrOfBathroomsTextBox.Text, out int numberOfBathrooms) &&
-                            int.TryParse(addNrOfBedroomsTextBox.Text, out int numberOfBedrooms) &&
-                            int.TryParse(addNrOfRoomsTextBox.Text, out int numberOfRooms) &&
-                            int.TryParse(addPriceTextBox.Text, out int price) &&
-                            int.TryParse(addSquareFtTextBox.Text, out int squareFeet) &&
-                            int.TryParse(addFeeTextBox.Text, out int monthlyFee) &&
-                            countryComboBox.SelectedItem != null &&
-                            addComboBox.SelectedItem != null &&
-                            selectedImageFilePath != null)
+                        if (TryParseResidentialFields(out int numberOfBathrooms, out int numberOfBedrooms, out int numberOfRooms, out int price, out int squareFeet, out int monthlyFee))
                         {
                             string buildingType = addComboBox.Text;
-                            
+                            address = CreateAddress();
 
                             if (buildingType == "Apartment")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new Apartment(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
-
                                 SharedData.Instance.EstateManager.Add(estate);
-                                foreach (Estate estate1 in SharedData.Instance.EstateManager.List)
-                                {
-                                    Debug.WriteLine($"Address: {estate1.Address.Street}, {estate1.Address.City}, {estate1.Address.Zipcode}");
-                                }
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Townhouse")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new Townhouse(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
                                 SharedData.Instance.EstateManager.Add(estate);
                                 ClearResidentialForm();
                             }
                             else if (buildingType == "Villa")
-                            {                              
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                            {
                                 estate = new Villa(price, squareFeet, monthlyFee, address, numberOfRooms, numberOfBathrooms, numberOfBedrooms, addHasGarageCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
                                 SharedData.Instance.EstateManager.Add(estate);
                                 ClearResidentialForm();
@@ -268,40 +322,26 @@ namespace ModernRealEstates.MVVM.View
 
                     if (AddInstitutionalFormIsCompleted())
                     {
-                        if (int.TryParse(addNrOfFloorsInstitTextBox.Text, out int numberOfFloors) &&
-                            int.TryParse(addNrOfParkingInstitTextBox.Text, out int numberOfParking) &&
-                            int.TryParse(addPriceTextBox.Text, out int price) &&
-                            int.TryParse(addSquareFtTextBox.Text, out int squareFeet) &&
-                            int.TryParse(addFeeTextBox.Text, out int monthlyFee) &&
-                            countryComboBox.SelectedItem != null &&
-                            addComboBox.SelectedItem != null &&
-                            selectedImageFilePath != null)
+                        if (TryParseInstitutionalFields(out int numberOfFloors, out int numberOfParking, out int price, out int squareFeet, out int monthlyFee))
                         {
                             string buildingType = addComboBox.Text;
-                            //Estate estate;
-                            //Address address;
+                            address = CreateAddress();
 
                             if (buildingType == "Hospital")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new Hospital(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
 
                                 SharedData.Instance.EstateManager.Add(estate);
-                                Debug.WriteLine("Added Hospital");
                                 ClearInstitutionalForm();
                             }
                             else if (buildingType == "School")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new School(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
-
                                 SharedData.Instance.EstateManager.Add(estate);
-                                Debug.WriteLine("Added school");
                                 ClearInstitutionalForm();
                             }
                             else if (buildingType == "University")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new University(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
 
                                 SharedData.Instance.EstateManager.Add(estate);
@@ -317,34 +357,21 @@ namespace ModernRealEstates.MVVM.View
 
                     if (AddCommercialFormIsCompleted())
                     {
-                        if (int.TryParse(addNrOfFloorsTextBox.Text, out int numberOfFloors) &&
-                            int.TryParse(addNrOfParkingTextBox.Text, out int numberOfParking) && 
-                            int.TryParse(addPriceTextBox.Text, out int price) &&
-                            int.TryParse(addSquareFtTextBox.Text, out int squareFeet) &&
-                            countryComboBox.SelectedItem != null &&
-                            addComboBox.SelectedItem != null &&
-                            selectedImageFilePath != null)
+                        if (TryParseCommercialFields(out int numberOfFloors, out int numberOfParking, out int price, out int squareFeet))
                         {
                             string buildingType = addComboBox.Text;
-                            //Estate estate;
-                            //Address address;
+                            address = CreateAddress();
 
                             if (buildingType == "Shop")
                             {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
                                 estate = new Shop(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.Text.ToString(), selectedImageFilePath);
 
                                 SharedData.Instance.EstateManager.Add(estate);
                                 ClearCommercialForm();
                             }
                             else if (buildingType == "Warehouse")
-                            {
-                                address = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
+                            {                              
                                 estate = new Warehouse(price, addSaleOrRentComboBox.Text, squareFeet, address, numberOfFloors, addHasParkingCheckBox.IsChecked.Value, numberOfParking, addHasInventoryCheckBox.IsChecked.Value, addHasInventoryComboBox.Text, addComboBox.Text.ToString(), selectedImageFilePath);
-
-                                //estate = new Warehouse(unique);
-                                //((Warehouse)estate).
-
                                 SharedData.Instance.EstateManager.Add(estate);
                                 ClearCommercialForm();
                             }
@@ -355,11 +382,6 @@ namespace ModernRealEstates.MVVM.View
                 default:
                     break;
             }
-            //Address address1 = new Address(addStreetTextBox.Text, addCityTextBox.Text, addZipCodeTextBox.Text, countryComboBox.SelectedItem.ToString());
-            //estate.Address = address1;
-            //estate.Price = int.Parse(addPriceTextBox.Text);
-            //set price, address, allt som finns i basklassen
-            //använd
         }
 
       

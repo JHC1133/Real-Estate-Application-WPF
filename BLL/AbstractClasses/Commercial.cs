@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace BLL.AbstractClasses
 {
-    public class Commercial : Estate
+    public abstract class Commercial : Estate
     {
         protected int leaseTerm;
         protected string businessType;
