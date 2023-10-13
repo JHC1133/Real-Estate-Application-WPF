@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.AbstractClasses
 {
-    public class Institutional : Estate
+    public abstract class Institutional : Estate
     {
         protected Institutional(int price, int monthlyFee, Address address, int squareFeet, int numberOfFloors, bool hasParking, int? numberOfParkingSlots, bool hasInventory, string buildingType, string imageFilePath)
             : base(price, address, buildingType, imageFilePath)

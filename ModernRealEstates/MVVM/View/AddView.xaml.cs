@@ -16,6 +16,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using BLL;
 using BLL.AbstractClasses;
+using UtilitiesLib;
 
 namespace ModernRealEstates.MVVM.View
 {
@@ -26,6 +27,7 @@ namespace ModernRealEstates.MVVM.View
     {
         BuildingTypes currentBT;
         string selectedImageFilePath;
+        Helper helper = new Helper();
 
         public AddView()
         {
@@ -216,9 +218,9 @@ namespace ModernRealEstates.MVVM.View
             squareFeet = 0;
             monthlyFee = 0;
 
-            return int.TryParse(addPriceTextBox.Text, out price) &&
-                   int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
-                   int.TryParse(addFeeTextBox.Text, out monthlyFee);
+            return helper.StringToInt(addPriceTextBox.Text, out price) &&
+                   helper.StringToInt(addSquareFtTextBox.Text, out squareFeet) &&
+                   helper.StringToInt(addFeeTextBox.Text, out monthlyFee);
         }
 
         private bool TryParseResidentialFields(out int numberOfBathrooms, out int numberOfBedrooms, out int numberOfRooms, out int price, out int squareFeet, out int monthlyFee)
@@ -231,11 +233,11 @@ namespace ModernRealEstates.MVVM.View
             monthlyFee = 0;
 
             return int.TryParse(addNrOfBathroomsTextBox.Text, out numberOfBathrooms) &&
-                int.TryParse(addNrOfBedroomsTextBox.Text, out numberOfBedrooms) &&
-                int.TryParse(addNrOfRoomsTextBox.Text, out numberOfRooms) &&
-                int.TryParse(addPriceTextBox.Text, out price) &&
-                int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
-                int.TryParse(addFeeTextBox.Text, out monthlyFee) &&
+                helper.StringToInt(addNrOfBedroomsTextBox.Text, out numberOfBedrooms) &&
+                helper.StringToInt(addNrOfRoomsTextBox.Text, out numberOfRooms) &&
+                helper.StringToInt(addPriceTextBox.Text, out price) &&
+                helper.StringToInt(addSquareFtTextBox.Text, out squareFeet) &&
+                helper.StringToInt(addFeeTextBox.Text, out monthlyFee) &&
                 countryComboBox.SelectedItem != null &&
                 addComboBox.SelectedItem != null &&
                 selectedImageFilePath != null;
@@ -249,9 +251,9 @@ namespace ModernRealEstates.MVVM.View
             squareFeet = 0;
 
             return int.TryParse(addNrOfFloorsTextBox.Text, out numberOfFloors) &&
-                int.TryParse(addNrOfParkingTextBox.Text, out numberOfParking) &&
-                int.TryParse(addPriceTextBox.Text, out price) &&
-                int.TryParse(addSquareFtTextBox.Text, out squareFeet) &&
+                helper.StringToInt(addNrOfParkingTextBox.Text, out numberOfParking) &&
+                helper.StringToInt(addPriceTextBox.Text, out price) &&
+                helper.StringToInt(addSquareFtTextBox.Text, out squareFeet) &&
                 countryComboBox.SelectedItem != null &&
                 addComboBox.SelectedItem != null &&
                 selectedImageFilePath != null;
@@ -330,7 +332,6 @@ namespace ModernRealEstates.MVVM.View
                             if (buildingType == "Hospital")
                             {
                                 estate = new Hospital(price, monthlyFee, address, squareFeet, numberOfFloors, addHasParkingInstitCheckBox.IsChecked.Value, numberOfParking, addHasInventoryInstitCheckBox.IsChecked.Value, addComboBox.Text.ToString(), selectedImageFilePath);
-
                                 SharedData.Instance.EstateManager.Add(estate);
                                 ClearInstitutionalForm();
                             }

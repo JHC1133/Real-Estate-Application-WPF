@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace BLL.AbstractClasses
 {
-    public class Residential : Estate
+    public abstract class Residential : Estate
     {
 
         protected int numberOfBedrooms;

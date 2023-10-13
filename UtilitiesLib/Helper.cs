@@ -5,17 +5,17 @@ namespace UtilitiesLib
     public class Helper
     {
 
-        bool StringToInt(string input, out int output)
+        public bool StringToInt(string input, out int output)
         {
             return int.TryParse(input, out output);
         }
 
-        bool StringToFloat(string input, out float output)
+        public bool StringToFloat(string input, out float output)
         {
             return float.TryParse(input, out output);
         }
 
-        bool StringToInt(string input, out int output, int lowLimit, int highLimit)
+        public bool StringToInt(string input, out int output, int lowLimit, int highLimit)
         {
             if (int.TryParse(input, out output))
             {
