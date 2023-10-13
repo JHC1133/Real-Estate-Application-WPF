@@ -318,7 +318,7 @@ namespace ModernRealEstates.MVVM.View
                     if (AddCommercialFormIsCompleted())
                     {
                         if (int.TryParse(addNrOfFloorsTextBox.Text, out int numberOfFloors) &&
-                            int.TryParse(addNrOfParkingTextBox.Text, out int numberOfParking) &&
+                            int.TryParse(addNrOfParkingTextBox.Text, out int numberOfParking) && 
                             int.TryParse(addPriceTextBox.Text, out int price) &&
                             int.TryParse(addSquareFtTextBox.Text, out int squareFeet) &&
                             countryComboBox.SelectedItem != null &&
